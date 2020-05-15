@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,7 +14,32 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="FJP-JB-Vdh">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Odu-Eh-1SI">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="358.5"/>
+                                        <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZwG-Ui-VUZ">
+                                        <rect key="frame" x="0.0" y="358.5" width="414" height="537.5"/>
+                                        <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Odu-Eh-1SI" firstAttribute="height" secondItem="FJP-JB-Vdh" secondAttribute="height" multiplier="0.4" id="PiL-3Q-KG2"/>
+                                    <constraint firstItem="ZwG-Ui-VUZ" firstAttribute="height" secondItem="FJP-JB-Vdh" secondAttribute="height" multiplier="0.6" id="Xwz-Eg-7xk"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="FJP-JB-Vdh" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Weh-8e-3Om"/>
+                            <constraint firstItem="FJP-JB-Vdh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gum-jm-kKS"/>
+                            <constraint firstItem="FJP-JB-Vdh" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="iP5-4s-xsv"/>
+                            <constraint firstAttribute="bottom" secondItem="FJP-JB-Vdh" secondAttribute="bottom" id="ygO-kj-HkT"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
