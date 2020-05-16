@@ -6,9 +6,11 @@
 //  Copyright © 2020 Lambda, Inc. All rights reserved.
 //
 
-#import "FGTWeather.h"
+#import "FGTWeatherForcast.h"
+#import "LSICardinalDirection.h"
 
-@implementation FGTWeather
+@implementation FGTWeatherForcast
+
 
 - (instancetype)initWithTime:(NSDate *)time
              sumary:(NSString *)summary
@@ -20,7 +22,7 @@ apparentTemperature:(double) apparentTemperature
            humidity:(double) humidity
            pressure:(double) pressure
           windSpeed:(double) windSpeed
-        windBearing:(double) windBearing
+        windBearing:(NSString *) windBearing
                      uvIndex:(int) uvIndex{
     self = [super init];
     
@@ -35,7 +37,7 @@ apparentTemperature:(double) apparentTemperature
         _humidity = humidity;
         _pressure = pressure;
         _windSpeed = windSpeed;
-        _windBearing = windBearing;
+        _windBearing = [windBearing copy];
         _uvIndex = uvIndex;
     }
     
@@ -104,12 +106,13 @@ apparentTemperature:(double) apparentTemperature
     double timeInMilliseconds = time.doubleValue;
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeInMilliseconds / 1000.0];
     
-    
+    //Format wind direccion
+    NSString *windBearingString = [LSICardinalDirection directionForHeading:windBearing.doubleValue];
     
     
     return [self initWithTime:date
                        sumary:summary icon:icon precipProbability:precipProbability.intValue precipIntensity:precipIntensity.intValue temperature:temperature.doubleValue apparentTemperature:apparentTemperature.doubleValue
-                     humidity:humidity.doubleValue pressure:pressure.doubleValue windSpeed:windSpeed.doubleValue windBearing:windBearing.doubleValue uvIndex:uvIndex.intValue];
+                     humidity:humidity.doubleValue pressure:pressure.doubleValue windSpeed:windSpeed.doubleValue windBearing:windBearingString uvIndex:uvIndex.intValue];
 }
 
 
