@@ -39,6 +39,9 @@ NS_ASSUME_NONNULL_BEGIN
                  windBearing:(double) windBearing
                      uvIndex:(int) uvIndex;
 
+//Use to represent the depth levels in the Json
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+
 @end
 
 NS_ASSUME_NONNULL_END

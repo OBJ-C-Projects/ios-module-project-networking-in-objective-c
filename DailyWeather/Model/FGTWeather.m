@@ -26,8 +26,8 @@ apparentTemperature:(double) apparentTemperature
     
     if(self){
         _time = time;
-        _summary = summary;
-        _icon = icon;
+        _summary = [summary copy];
+        _icon = [icon copy];
         _precipProbability = precipProbability;
         _precipIntensity = precipIntensity;
         _temperature = temperature;
@@ -40,6 +40,73 @@ apparentTemperature:(double) apparentTemperature
     }
     
     return self;
+}
+
+//Use to represent the depth levels in the Json
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary{
+    
+    NSDictionary *currently = dictionary[@"currently"];
+    
+    NSDate *time = currently[@"time"];
+    NSString *summary = currently[@"summary"];
+    NSString *icon = currently[@"icon"];
+    NSNumber *precipProbability = currently[@"precipProbability"];
+    NSNumber *precipIntensity = currently[@"precipIntensity"];
+    NSNumber *temperature = currently[@"temperature"];
+    NSNumber *apparentTemperature = currently[@"apparentTemperature"];
+    NSNumber *humidity = currently[@"humidity"];
+    NSNumber *pressure = currently[@"pressure"];
+    NSNumber *windSpeed = currently[@"windSpeed"];
+    NSNumber *windBearing = currently[@"windBearing"];
+    NSNumber *uvIndex = currently[@"currently"];
+    
+    //Required
+    if(!time){
+        return nil;
+    }
+    
+    //Optionals
+    if([summary isKindOfClass:[NSNull class]]){
+        summary = nil;
+    }
+    if([icon isKindOfClass:[NSNull class]]){
+        icon = nil;
+    }
+    if([precipProbability isKindOfClass:[NSNull class]]){
+        precipProbability = nil;
+    }
+    if([precipIntensity isKindOfClass:[NSNull class]]){
+        precipIntensity = nil;
+    }
+    if([temperature isKindOfClass:[NSNull class]]){
+        temperature = nil;
+    }
+    if([apparentTemperature isKindOfClass:[NSNull class]]){
+        apparentTemperature = nil;
+    }
+    if([humidity isKindOfClass:[NSNull class]]){
+        humidity = nil;
+    }
+    if([pressure isKindOfClass:[NSNull class]]){
+        pressure = nil;
+    }
+    if([windSpeed isKindOfClass:[NSNull class]]){
+        windSpeed = nil;
+    }
+    if([windBearing isKindOfClass:[NSNull class]]){
+        windBearing = nil;
+    }
+    if([uvIndex isKindOfClass:[NSNull class]]){
+        uvIndex = nil;
+    }
+    
+    
+    
+    
+    
+    return [self initWithTime:time
+                       sumary:summary icon:icon precipProbability:precipProbability.intValue precipIntensity:precipIntensity.intValue temperature:temperature.doubleValue apparentTemperature:apparentTemperature.doubleValue
+                     humidity:humidity.doubleValue pressure:pressure.doubleValue windSpeed:windSpeed.doubleValue windBearing:windBearing.doubleValue uvIndex:uvIndex.intValue];
 }
 
 
