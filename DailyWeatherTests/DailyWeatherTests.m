@@ -8,6 +8,9 @@
 
 #import <XCTest/XCTest.h>
 
+//#import "Weather.json"
+//#import "FGTWeather.h"
+
 @interface DailyWeatherTests : XCTestCase
 
 @end

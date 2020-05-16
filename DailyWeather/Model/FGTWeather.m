@@ -47,7 +47,7 @@ apparentTemperature:(double) apparentTemperature
     
     NSDictionary *currently = dictionary[@"currently"];
     
-    NSDate *time = currently[@"time"];
+    NSNumber *time = currently[@"time"];
     NSString *summary = currently[@"summary"];
     NSString *icon = currently[@"icon"];
     NSNumber *precipProbability = currently[@"precipProbability"];
@@ -60,7 +60,7 @@ apparentTemperature:(double) apparentTemperature
     NSNumber *windBearing = currently[@"windBearing"];
     NSNumber *uvIndex = currently[@"currently"];
     
-    //Required
+    //Non optionals
     if(!time){
         return nil;
     }
@@ -100,11 +100,14 @@ apparentTemperature:(double) apparentTemperature
         uvIndex = nil;
     }
     
+    //Format date
+    double timeInMilliseconds = time.doubleValue;
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeInMilliseconds / 1000.0];
     
     
     
     
-    return [self initWithTime:time
+    return [self initWithTime:date
                        sumary:summary icon:icon precipProbability:precipProbability.intValue precipIntensity:precipIntensity.intValue temperature:temperature.doubleValue apparentTemperature:apparentTemperature.doubleValue
                      humidity:humidity.doubleValue pressure:pressure.doubleValue windSpeed:windSpeed.doubleValue windBearing:windBearing.doubleValue uvIndex:uvIndex.intValue];
 }
