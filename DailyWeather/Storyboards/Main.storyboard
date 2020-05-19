@@ -190,7 +190,7 @@
                                                 </constraints>
                                             </stackView>
                                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFa-kI-Nfc">
-                                                <rect key="frame" x="0.0" y="451" width="414" height="44"/>
+                                                <rect key="frame" x="0.0" y="446" width="414" height="49"/>
                                                 <items>
                                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="jgD-d4-GEL"/>
                                                     <barButtonItem image="info.circle.fill" catalog="system" id="RNZ-XV-DXm">
@@ -232,7 +232,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
+            <point key="canvasLocation" x="251" y="131"/>
         </scene>
         <!--Settings-->
         <scene sceneID="Iuo-Nt-Ubb">
@@ -280,7 +280,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5ul-pW-Gzv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1198.5507246376812" y="130.58035714285714"/>
+            <point key="canvasLocation" x="1132" y="131"/>
         </scene>
     </scenes>
     <resources>
