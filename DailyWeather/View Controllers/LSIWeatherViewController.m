@@ -78,7 +78,11 @@
     
     // TODO: Transparent toolbar with info button (Settings)
     // TODO: Handle settings button pressed
+
 }
+
+
+
 
 //https://developer.apple.com/documentation/corelocation/converting_between_coordinates_and_user-friendly_place_names
 - (void)requestCurrentPlacemarkForLocation:(CLLocation *)location
@@ -133,7 +137,35 @@
 - (void)requestWeatherForLocation:(CLLocation *)location {
     
     // TODO: 1. Parse CurrentWeather.json from App Bundle and update UI
+    //Base URL
     
+//    location.coordinate.latitude
+    //Add query with lat and long to URL
+    NSString *baseURL = @"https://api.openweathermap.org/data/2.5/weather?";
+    
+    NSString *latString = [[NSNumber numberWithDouble: location.coordinate.latitude] stringValue];
+    NSString *lonString =[[NSNumber numberWithDouble: location.coordinate.longitude] stringValue];
+    
+    NSURLComponents *components = [NSURLComponents componentsWithString: baseURL];
+    
+    NSURLQueryItem *lat = [NSURLQueryItem queryItemWithName:@"lat" value: latString];
+    NSURLQueryItem *lon = [NSURLQueryItem queryItemWithName:@"lon" value: lonString];
+    NSURLQueryItem *appid = [NSURLQueryItem queryItemWithName:@"appid" value: @"edee7c3774cea803358c17ed3bf36159"];
+    components.queryItems = @[lat,lon,appid];
+    
+    NSURL *url = components.URL;
+
+    //Create session
+    [[NSURLSession.sharedSession dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        if(error){
+            NSLog(@"%@", error);
+            return;
+        }
+        NSLog(@"Finished Fetching weather");
+        
+       
+    }]resume];
     
     
     
