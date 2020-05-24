@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -229,6 +229,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="chanceOfRainLabel" destination="TpP-Pn-tJu" id="p4x-T7-28O"/>
+                        <outlet property="feelsLikeLabel" destination="CWp-y3-BgT" id="clC-KM-Cr9"/>
+                        <outlet property="humidityLabel" destination="j1w-zE-ecR" id="Ds1-QK-E3U"/>
+                        <outlet property="iconLabel" destination="OzS-RV-s9l" id="zf6-nE-PmN"/>
+                        <outlet property="locationLabel" destination="fwa-7d-fgA" id="Odk-8R-XTp"/>
+                        <outlet property="preassureLabel" destination="4ra-Cq-69c" id="vQy-Kh-8RN"/>
+                        <outlet property="temperatureLabel" destination="Y6v-9M-bCR" id="CMt-iP-hyI"/>
+                        <outlet property="uvIndexLabel" destination="5ln-Ra-aBe" id="5oL-r5-Y5y"/>
+                        <outlet property="weatherConditionsLabel" destination="bvb-es-rOn" id="6nF-do-M81"/>
+                        <outlet property="windLabel" destination="c5f-6q-ybO" id="cpN-4s-au6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

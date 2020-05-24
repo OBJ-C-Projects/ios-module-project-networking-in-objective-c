@@ -22,13 +22,13 @@ apparentTemperature:(double) apparentTemperature
            humidity:(double) humidity
            pressure:(double) pressure
           windSpeed:(double) windSpeed
-        windBearing:(NSString *) windBearing
+        windBearing:(double) deg
                      uvIndex:(int) uvIndex{
     self = [super init];
     
     if(self){
         _time = time;
-        _summary = [summary copy];
+//        _summary = [summary copy];
         _icon = [icon copy];
         _precipProbability = precipProbability;
         _precipIntensity = precipIntensity;
@@ -37,7 +37,7 @@ apparentTemperature:(double) apparentTemperature
         _humidity = humidity;
         _pressure = pressure;
         _windSpeed = windSpeed;
-        _windBearing = [windBearing copy];
+        _deg = deg;
         _uvIndex = uvIndex;
     }
     
@@ -59,7 +59,7 @@ apparentTemperature:(double) apparentTemperature
     NSNumber *humidity = currently[@"humidity"];
     NSNumber *pressure = currently[@"pressure"];
     NSNumber *windSpeed = currently[@"windSpeed"];
-    NSNumber *windBearing = currently[@"windBearing"];
+    NSNumber *deg = currently[@"windBearing"];
     NSNumber *uvIndex = currently[@"currently"];
     
     //Non optionals
@@ -95,8 +95,8 @@ apparentTemperature:(double) apparentTemperature
     if([windSpeed isKindOfClass:[NSNull class]]){
         windSpeed = nil;
     }
-    if([windBearing isKindOfClass:[NSNull class]]){
-        windBearing = nil;
+    if([deg isKindOfClass:[NSNull class]]){
+        deg = nil;
     }
     if([uvIndex isKindOfClass:[NSNull class]]){
         uvIndex = nil;
@@ -107,12 +107,12 @@ apparentTemperature:(double) apparentTemperature
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeInMilliseconds / 1000.0];
     
     //Format wind direccion
-    NSString *windBearingString = [LSICardinalDirection directionForHeading:windBearing.doubleValue];
+    NSString *windBearingString = [LSICardinalDirection directionForHeading: deg.doubleValue];
     
     
     return [self initWithTime:date
                        sumary:summary icon:icon precipProbability:precipProbability.intValue precipIntensity:precipIntensity.intValue temperature:temperature.doubleValue apparentTemperature:apparentTemperature.doubleValue
-                     humidity:humidity.doubleValue pressure:pressure.doubleValue windSpeed:windSpeed.doubleValue windBearing:windBearingString uvIndex:uvIndex.intValue];
+                     humidity:humidity.doubleValue pressure:pressure.doubleValue windSpeed:windSpeed.doubleValue deg:windBearingString uvIndex:uvIndex.intValue];
 }
 
 

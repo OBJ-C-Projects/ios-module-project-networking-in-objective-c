@@ -16,8 +16,8 @@
 static NSArray<NSString *> *_icons = nil;
 static NSString *unknownIcon = @"questionmark.circle.fill";
 
-/// Based on possible entries from `icon`: https://darksky.net/dev/docs
-
+/// Based on possible entries from `icon`: https://darksky.net/dev/docs // No longer in use
+//New icon id https://openweathermap.org/weather-conditions
 + (NSArray<NSString *> *)weatherIcons {
     if(!_icons) {
         _icons = @[

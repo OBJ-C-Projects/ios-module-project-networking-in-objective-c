@@ -12,18 +12,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FGTWeatherForcast : NSObject
 
-
-@property (nonatomic, readonly) NSDate *time;
-@property (nonatomic, readonly, copy) NSString *summary;
-@property (nonatomic, readonly, copy) NSString *icon;
-@property (nonatomic, readonly) int precipProbability;
-@property (nonatomic, readonly) int precipIntensity;
-@property (nonatomic, readonly) double temperature;
-@property (nonatomic, readonly) double apparentTemperature;
+@property (nonatomic, readonly, copy) NSString *name;//city
+@property (nonatomic, readonly, copy) NSString *id;//icon id https://openweathermap.org/weather-conditions
+@property (nonatomic, readonly) double temp;
+@property (nonatomic, readonly) double feels_like;
 @property (nonatomic, readonly) double humidity;
 @property (nonatomic, readonly) double pressure;
-@property (nonatomic, readonly) double windSpeed;
-@property (nonatomic, readonly, copy) NSString *windBearing;
+@property (nonatomic, readonly) double speed;//Wind speed
+@property (nonatomic, readonly) double deg;//Wind direction
 @property (nonatomic, readonly) int uvIndex;
 
 - (instancetype)initWithTime:(NSDate *)time
@@ -36,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
                     humidity:(double) humidity
                     pressure:(double) pressure
                    windSpeed:(double) windSpeed
-                 windBearing:(NSString *)windBearing
+                 windBearing:(double) windBearing
                      uvIndex:(int) uvIndex;
 
 //Use to represent the depth levels in the Json
