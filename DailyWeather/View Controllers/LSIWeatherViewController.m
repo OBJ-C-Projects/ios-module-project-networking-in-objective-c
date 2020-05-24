@@ -15,6 +15,21 @@
     BOOL _requestedLocation;
 }
 
+@property (strong, nonatomic) IBOutlet UIImageView *iconLabel;
+@property (strong, nonatomic) IBOutlet UILabel *locationLabel;
+@property (strong, nonatomic) IBOutlet UILabel *weatherConditionsLabel;
+@property (strong, nonatomic) IBOutlet UILabel *temperatureLabel;
+
+
+@property (strong, nonatomic) IBOutlet UILabel *windLabel;
+@property (strong, nonatomic) IBOutlet UILabel *feelsLikeLabel;
+@property (strong, nonatomic) IBOutlet UILabel *humidityLabel;
+@property (strong, nonatomic) IBOutlet UILabel *preassureLabel;
+@property (strong, nonatomic) IBOutlet UILabel *chanceOfRainLabel;
+@property (strong, nonatomic) IBOutlet UILabel *uvIndexLabel;
+
+
+
 @property CLLocationManager *locationManager;
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
@@ -25,6 +40,10 @@
 // otherwise you'll see errors about the type not being correct if you
 // try to move delegate methods out of the main implementation body
 @interface LSIWeatherViewController (CLLocationManagerDelegate) <CLLocationManagerDelegate>
+
+
+
+
 
 @end
 
