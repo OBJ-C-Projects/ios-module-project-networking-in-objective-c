@@ -137,10 +137,7 @@
 - (void)requestWeatherForLocation:(CLLocation *)location {
     
     // TODO: 1. Parse CurrentWeather.json from App Bundle and update UI
-    //Base URL
-    
-//    location.coordinate.latitude
-    //Add query with lat and long to URL
+    //Base URL: https://openweathermap.org/current
     NSString *baseURL = @"https://api.openweathermap.org/data/2.5/weather?";
     
     NSString *latString = [[NSNumber numberWithDouble: location.coordinate.latitude] stringValue];
@@ -159,11 +156,27 @@
     [[NSURLSession.sharedSession dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
         if(error){
-            NSLog(@"%@", error);
+            NSLog(@"URL session error: %@", error);
             return;
         }
+        
+        
         NSLog(@"Finished Fetching weather");
         
+//        NSString *dummyData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+//        NSLog(@"Dummy data: %@",dummyData);
+        
+        
+        //Parsing
+        NSError *parsingError;
+        NSDictionary *weatherJSON = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&parsingError];
+        if(parsingError){
+            NSLog(@"Error while parsing: %@", parsingError);
+            return;
+        };
+        
+         NSLog(@"Name: %@",weatherJSON[@"name"]);
+
        
     }]resume];
     
