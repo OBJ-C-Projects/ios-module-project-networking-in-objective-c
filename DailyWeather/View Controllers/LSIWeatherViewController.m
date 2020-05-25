@@ -208,8 +208,6 @@
         
         // TODO: Update the UI based on the current forecast
         if(self.forcast){
-            
-            
             //Setup Labels
              self.weatherConditionsLabel.text = self.forcast.conditions;
             self.temperatureLabel.text = self.forcast.temperature;
@@ -217,11 +215,8 @@
             self.feelsLikeLabel.text = self.forcast.feelsLike;
             self.humidityLabel.text = self.forcast.humidity;
             self.preassureLabel.text = self.forcast.pressure;
-            NSLog(@"Sunset: %@",self.forcast.sunset);
- 
-           
-            
-            //self.humidityLabel.text = self.forcast.humidity;
+            self.sunriseLabel.text = self.forcast.sunrise;
+            self.sunsetLabel.text = self.forcast.sunset;
         }
     });
 }

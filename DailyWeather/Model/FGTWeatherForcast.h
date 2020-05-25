@@ -13,8 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface FGTWeatherForcast : NSObject
 
 @property (nonatomic, readonly, copy) NSString *conditions;
-@property (nonatomic, readonly) NSDate *sunrise;
-@property (nonatomic, readonly) NSDate *sunset;
+@property (nonatomic, readonly, copy) NSString *sunrise;
+@property (nonatomic, readonly, copy) NSString *sunset;
 @property (nonatomic, readonly) NSNumber *iconID;
 @property (nonatomic, readonly, copy) NSString *temperature;
 @property (nonatomic, readonly, copy) NSString *feelsLike;
@@ -25,8 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 - (instancetype)initWithCity:(NSString *)conditions
-                     sunrise:(NSDate *) sunrise
-                      sunset:(NSDate *) sunset
+                     sunrise:(NSString *) sunrise
+                      sunset:(NSString *) sunset
                       iconID:(NSNumber *) iconID
                  temperature:(NSString *) temperature
                    feelsLike:(NSString *) feelsLike

@@ -13,8 +13,8 @@
 
 
 - (instancetype)initWithCity:(NSString *)conditions
-                     sunrise:(NSDate *) sunrise
-                      sunset:(NSDate *) sunset
+                     sunrise:(NSString *) sunrise
+                      sunset:(NSString *) sunset
                       iconID:(NSNumber *) iconID
                  temperature:(NSString *) temperature
                    feelsLike:(NSString *) feelsLike
@@ -61,14 +61,20 @@
     NSNumber *sunrise = sys[@"sunrise"];
     NSNumber *sunset = sys[@"sunset"];
     
+    //Date Format
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.timeStyle = NSDateFormatterMediumStyle;
+    dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
     
-    //Time Format
-    double sunriseInMilliseconds = sunrise.doubleValue;
-    NSDate *sunriseTime = [NSDate dateWithTimeIntervalSince1970:sunriseInMilliseconds / 1000.0];
+    //Sunrise time
+    NSDate *sunriseTime = [NSDate dateWithTimeIntervalSinceReferenceDate:sunrise.doubleValue];
+    NSString *sunriseString = [dateFormatter stringFromDate:sunriseTime];
     
-    double sunsetInMilliseconds = sunset.doubleValue;
-    NSDate *sunsetTime = [NSDate dateWithTimeIntervalSince1970:sunsetInMilliseconds / 1000.0];
+     //Sunset time
+    NSDate *sunsetTime = [NSDate dateWithTimeIntervalSinceReferenceDate:sunset.doubleValue];
+    NSString *sunsetString =  [dateFormatter stringFromDate: sunsetTime];
     
+ 
     //Format wind direccion
     NSString *windDirectionString = [LSICardinalDirection directionForHeading: windDirection.doubleValue];
     
@@ -92,8 +98,8 @@
     
     
     return [self initWithCity: conditions
-                      sunrise:sunriseTime
-                       sunset:sunsetTime
+                      sunrise:sunriseString
+                       sunset:sunsetString
                        iconID:iconID
                   temperature:temp
                     feelsLike:feels
