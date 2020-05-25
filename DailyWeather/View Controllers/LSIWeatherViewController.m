@@ -11,6 +11,7 @@
 #import "LSIErrors.h"
 #import "LSILog.h"
 #import "FGTWeatherForcast.h"
+#import "LSIWeatherIcons.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
@@ -217,6 +218,13 @@
             self.preassureLabel.text = self.forcast.pressure;
             self.sunriseLabel.text = self.forcast.sunrise;
             self.sunsetLabel.text = self.forcast.sunset;
+            
+            
+            //Setup icon
+            UIImage *uiIcon = [LSIWeatherIcons weatherImageForIconName: self.forcast.iconID];
+            
+            self.iconLabel.image = uiIcon;
+            NSLog(@"icon: %@", self.forcast.iconID);
         }
     });
 }

@@ -16,7 +16,7 @@
 ///     hail, thunderstorm, tornado, or huricane
 ///     sunrise, sunset
 ///  NOTE: If any other value is provided, it will return a ? icon
-+ (UIImage *)weatherImageForIconName:(NSString *)iconName;
++ (UIImage *)weatherImageForIconName:(NSNumber *)iconNumber;
 
 
 @end

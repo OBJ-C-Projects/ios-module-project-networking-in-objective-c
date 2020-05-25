@@ -9,13 +9,15 @@
 #import "FGTWeatherForcast.h"
 #import "LSICardinalDirection.h"
 
+
+
 @implementation FGTWeatherForcast
 
 
 - (instancetype)initWithCity:(NSString *)conditions
                      sunrise:(NSString *) sunrise
                       sunset:(NSString *) sunset
-                      iconID:(NSNumber *) iconID
+                      iconID:(NSNumber*) iconID
                  temperature:(NSString *) temperature
                    feelsLike:(NSString *) feelsLike
                     humidity:(NSString *) humidity
@@ -44,7 +46,7 @@
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary{
     
     NSDictionary *weather = dictionary[@"weather"][0];
-    NSNumber *iconID = weather[@"id"];
+    NSNumber *iconNum = weather[@"id"];
     NSString *conditions = weather[@"main"];
     
     NSDictionary *main = dictionary[@"main"];
@@ -95,12 +97,10 @@
     
     NSString *pressureString = [NSString stringWithFormat:@"%@ inHg",pressure];
     
-    
-    
     return [self initWithCity: conditions
                       sunrise:sunriseString
                        sunset:sunsetString
-                       iconID:iconID
+                       iconID: iconNum
                   temperature:temp
                     feelsLike:feels
                      humidity:humidityString
