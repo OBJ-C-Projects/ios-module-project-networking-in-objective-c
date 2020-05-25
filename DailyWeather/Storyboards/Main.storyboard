@@ -192,6 +192,12 @@
                                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFa-kI-Nfc">
                                                 <rect key="frame" x="0.0" y="446" width="414" height="49"/>
                                                 <items>
+                                                    <barButtonItem title="°C / °F" id="9tU-pN-Xmr">
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <connections>
+                                                            <action selector="toggleUnitsFormatButton:" destination="BYZ-38-t0r" id="THw-I7-Yw1"/>
+                                                        </connections>
+                                                    </barButtonItem>
                                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="jgD-d4-GEL"/>
                                                     <barButtonItem image="info.circle.fill" catalog="system" id="RNZ-XV-DXm">
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

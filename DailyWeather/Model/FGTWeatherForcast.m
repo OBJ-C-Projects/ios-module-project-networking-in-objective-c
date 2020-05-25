@@ -80,6 +80,9 @@
     //Format wind direccion
     NSString *windDirectionString = [LSICardinalDirection directionForHeading: windDirection.doubleValue];
     
+    //Check pref for unit format
+    NSUserDefaults *pref = [NSUserDefaults standardUserDefaults];
+    bool isCelciusEnable = [pref boolForKey:@"isCelciusEnable"];
     
     //Format all data to string for label use
     
@@ -88,10 +91,13 @@
     [formater setMaximum:0];
     [formater setRoundingMode:NSNumberFormatterRoundUp];
     
-    NSString *temp= [NSString stringWithFormat:@"%@°F",[formater stringFromNumber: temperature]];
-    NSString *feels = [NSString stringWithFormat:@"%@°F",[formater stringFromNumber: feelsLike]];
     
-    NSString *windSpeedString = [NSString stringWithFormat:@"%@ %@ mph", windDirectionString,[formater stringFromNumber: windSpeed]];
+    NSString *tempFormat = isCelciusEnable ? @"°F" : @"°C";
+    NSString *temp= [NSString stringWithFormat:@"%@%@",[formater stringFromNumber: temperature], tempFormat];
+    NSString *feels = [NSString stringWithFormat:@"%@%@",[formater stringFromNumber: feelsLike],tempFormat];
+    
+    NSString *speedFormat = isCelciusEnable ? @"mph" : @"km";
+    NSString *windSpeedString = [NSString stringWithFormat:@"%@ %@ %@ ", windDirectionString,[formater stringFromNumber: windSpeed],speedFormat];
     
     NSString *humidityString = [NSString stringWithFormat:@"%@%@", humidity,@"%"];
     

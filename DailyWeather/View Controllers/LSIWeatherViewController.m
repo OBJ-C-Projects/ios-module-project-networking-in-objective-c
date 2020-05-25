@@ -35,6 +35,7 @@
 @property CLLocationManager *locationManager;
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
+@property (nonatomic) bool isCelciusEnable;
 @property FGTWeatherForcast *forcast;
 
 @end
@@ -77,7 +78,9 @@
     
     // TODO: Transparent toolbar with info button (Settings)
     // TODO: Handle settings button pressed
-
+    NSUserDefaults *userDefaultsPref = [NSUserDefaults standardUserDefaults];
+    bool isCelcius = [userDefaultsPref boolForKey:@"isCelciusEnable"];
+    self.isCelciusEnable = isCelcius;
 }
 
 
@@ -144,9 +147,9 @@
     
     NSURLQueryItem *lat = [NSURLQueryItem queryItemWithName:@"lat" value: latString];
     NSURLQueryItem *lon = [NSURLQueryItem queryItemWithName:@"lon" value: lonString];
-    NSURLQueryItem *unitFOrmat = [NSURLQueryItem queryItemWithName:@"units" value:@"imperial"];
+    NSURLQueryItem *unitFormat = [NSURLQueryItem queryItemWithName:@"units" value: self.isCelciusEnable ? @"imperial" : @"metric"];
     NSURLQueryItem *appid = [NSURLQueryItem queryItemWithName:@"appid" value: @"edee7c3774cea803358c17ed3bf36159"];
-    components.queryItems = @[lat,lon,unitFOrmat,appid];
+    components.queryItems = @[lat,lon,unitFormat,appid];
     
     NSURL *url = components.URL;
 
@@ -192,10 +195,6 @@
         [self updateViews];
        
     }]resume];
-    
-    
-    
-    // TODO: 2. Refactor and Parse Weather.json from App Bundle and update UI
 }
 
 - (void)updateViews {
@@ -224,10 +223,31 @@
             UIImage *uiIcon = [LSIWeatherIcons weatherImageForIconName: self.forcast.iconID];
             
             self.iconLabel.image = uiIcon;
-            NSLog(@"icon: %@", self.forcast.iconID);
         }
     });
 }
+
+- (IBAction)toggleUnitsFormatButton:(UIBarButtonItem *)sender {
+
+    //self.isCelciusEnable = !self.isCelciusEnable;
+    NSUserDefaults *userDefaultsPref = [NSUserDefaults standardUserDefaults];
+    
+    if(self.isCelciusEnable){
+        [userDefaultsPref setBool: false forKey:@"isCelciusEnable"];
+        self.isCelciusEnable = false;
+    }else{
+        [userDefaultsPref setBool: true forKey:@"isCelciusEnable"];
+        self.isCelciusEnable = true;
+    }
+    
+    
+    [userDefaultsPref synchronize];
+    //Request data with repective units
+    [self requestWeatherForLocation: self.location];
+    
+    NSLog(@"Toggle: %d",self.isCelciusEnable);
+}
+
 
 @end
 
