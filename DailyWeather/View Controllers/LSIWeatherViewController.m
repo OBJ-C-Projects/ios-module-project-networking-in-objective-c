@@ -157,6 +157,10 @@
             return;
         }
         
+        if(!data){
+            NSLog(@"No data return from URL Session.");
+            return;
+        }
         
         NSLog(@"Finished Fetching weather");
         
@@ -164,9 +168,9 @@
 //        NSLog(@"Dummy data: %@",dummyData);
         
         
-        //Parsing
+        //Parsing data
         NSError *parsingError;
-        FGTWeatherForcast *weatherJSON = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&parsingError];
+        NSDictionary *weatherJSON = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&parsingError];
         
         //Handle errors
         if(parsingError){
@@ -174,18 +178,16 @@
             return;
         };
         
-        if(!data){
-            NSLog(@"No data return from URL Session.");
-            return;
-        }
-        
         // NSLog(@"temp: %@",weatherJSON[@"main"][@"temp"]);
         
-        //FIXME: Create the forecast object
-        //self.forcast = FGTWeatherForcast.new;
-        //self.forcast = weatherJSON;
-        //NSLog(@"TEMP: %@", self.forcast.temperature);
-        //Update view after fetching
+        //Create new FGTWeatherForcast object
+        FGTWeatherForcast *weather = [[FGTWeatherForcast alloc] initWithDictionary:weatherJSON];
+        
+        if(weather){
+            //If exist pass it to the forcast to be use
+            self.forcast = weather;
+        }
+        
         [self updateViews];
        
     }]resume];
@@ -196,14 +198,32 @@
 }
 
 - (void)updateViews {
-    if (self.placemark) {
-        // TODO: Update the City, State label
-        dispatch_async(dispatch_get_main_queue(), ^{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.placemark) {
+            // TODO: Update the City, State label
+            
             self.locationLabel.text = self.placemark.administrativeArea;
-               });
-    }
-    
-    // TODO: Update the UI based on the current forecast
+            
+        }
+        
+        // TODO: Update the UI based on the current forecast
+        if(self.forcast){
+            
+            
+            //Setup Labels
+             self.weatherConditionsLabel.text = self.forcast.conditions;
+            self.temperatureLabel.text = self.forcast.temperature;
+            self.windLabel.text = self.forcast.windSpeed;
+            self.feelsLikeLabel.text = self.forcast.feelsLike;
+            self.humidityLabel.text = self.forcast.humidity;
+            self.preassureLabel.text = self.forcast.pressure;
+            NSLog(@"Sunset: %@",self.forcast.sunset);
+ 
+           
+            
+            //self.humidityLabel.text = self.forcast.humidity;
+        }
+    });
 }
 
 @end

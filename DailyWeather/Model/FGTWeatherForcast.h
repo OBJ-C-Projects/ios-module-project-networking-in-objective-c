@@ -16,24 +16,24 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) NSDate *sunrise;
 @property (nonatomic, readonly) NSDate *sunset;
 @property (nonatomic, readonly) NSNumber *iconID;
-@property (nonatomic, readonly) double temperature;
-@property (nonatomic, readonly) double feelsLike;
-@property (nonatomic, readonly) double humidity;
-@property (nonatomic, readonly) double pressure;
-@property (nonatomic, readonly) double windSpeed;
-@property (nonatomic, readonly) double windDirection;
+@property (nonatomic, readonly, copy) NSString *temperature;
+@property (nonatomic, readonly, copy) NSString *feelsLike;
+@property (nonatomic, readonly, copy) NSString *humidity;
+@property (nonatomic, readonly, copy) NSString *pressure;
+@property (nonatomic, readonly, copy) NSString *windSpeed;
+@property (nonatomic, readonly, copy) NSString *windDirection;
 
 
 - (instancetype)initWithCity:(NSString *)conditions
                      sunrise:(NSDate *) sunrise
                       sunset:(NSDate *) sunset
                       iconID:(NSNumber *) iconID
-                 temperature:(double) temperature
-                   feelsLike:(double) feelsLike
-                    humidity:(double) humidity
-                    pressure:(double) pressure
-                   windSpeed:(double) windSpeed
-               windDirection:(double) windDirection;
+                 temperature:(NSString *) temperature
+                   feelsLike:(NSString *) feelsLike
+                    humidity:(NSString *) humidity
+                    pressure:(NSString *) pressure
+                   windSpeed:(NSString *) windSpeed
+               windDirection:(NSString *) windDirection;
 
 //Use to represent the depth levels in the Json
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;

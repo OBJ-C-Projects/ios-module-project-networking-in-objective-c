@@ -16,12 +16,12 @@
                      sunrise:(NSDate *) sunrise
                       sunset:(NSDate *) sunset
                       iconID:(NSNumber *) iconID
-                 temperature:(double) temperature
-                   feelsLike:(double) feelsLike
-                    humidity:(double) humidity
-                    pressure:(double) pressure
-                   windSpeed:(double) windSpeed
-               windDirection:(double) windDirection{
+                 temperature:(NSString *) temperature
+                   feelsLike:(NSString *) feelsLike
+                    humidity:(NSString *) humidity
+                    pressure:(NSString *) pressure
+                   windSpeed:(NSString *) windSpeed
+               windDirection:(NSString *) windDirection{
     self = [super init];
     
     if(self){
@@ -43,9 +43,7 @@
 //Use to represent the depth levels in the Json
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary{
     
-    
-    
-    NSDictionary *weather = dictionary[@"weather"];
+    NSDictionary *weather = dictionary[@"weather"][0];
     NSNumber *iconID = weather[@"id"];
     NSString *conditions = weather[@"main"];
     
@@ -75,12 +73,34 @@
     NSString *windDirectionString = [LSICardinalDirection directionForHeading: windDirection.doubleValue];
     
     
+    //Format all data to string for label use
+    
+    //Limit the amount of decimal numbers to zero
+    NSNumberFormatter *formater = [[NSNumberFormatter alloc] init];
+    [formater setMaximum:0];
+    [formater setRoundingMode:NSNumberFormatterRoundUp];
+    
+    NSString *temp= [NSString stringWithFormat:@"%@°F",[formater stringFromNumber: temperature]];
+    NSString *feels = [NSString stringWithFormat:@"%@°F",[formater stringFromNumber: feelsLike]];
+    
+    NSString *windSpeedString = [NSString stringWithFormat:@"%@ %@ mph", windDirectionString,[formater stringFromNumber: windSpeed]];
+    
+    NSString *humidityString = [NSString stringWithFormat:@"%@%@", humidity,@"%"];
+    
+    NSString *pressureString = [NSString stringWithFormat:@"%@ inHg",pressure];
+    
+    
+    
     return [self initWithCity: conditions
                       sunrise:sunriseTime
                        sunset:sunsetTime
                        iconID:iconID
-                  temperature:temperature.doubleValue feelsLike:feelsLike.doubleValue
-                     humidity:humidity.doubleValue pressure:pressure.doubleValue windSpeed:windSpeed.doubleValue windDirection:windDirectionString.doubleValue];
+                  temperature:temp
+                    feelsLike:feels
+                     humidity:humidityString
+                     pressure:pressureString
+                    windSpeed:windSpeedString
+                windDirection:windDirectionString];
 }
 
 
