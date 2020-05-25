@@ -10,6 +10,7 @@
 #import "LSIWeatherIcons.h"
 #import "LSIErrors.h"
 #import "LSILog.h"
+#import "FGTWeatherForcast.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
@@ -25,14 +26,15 @@
 @property (strong, nonatomic) IBOutlet UILabel *feelsLikeLabel;
 @property (strong, nonatomic) IBOutlet UILabel *humidityLabel;
 @property (strong, nonatomic) IBOutlet UILabel *preassureLabel;
-@property (strong, nonatomic) IBOutlet UILabel *chanceOfRainLabel;
-@property (strong, nonatomic) IBOutlet UILabel *uvIndexLabel;
+@property (strong, nonatomic) IBOutlet UILabel *sunriseLabel;
+@property (strong, nonatomic) IBOutlet UILabel *sunsetLabel;
 
 
 
 @property CLLocationManager *locationManager;
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
+@property FGTWeatherForcast *forcast;
 
 @end
 
@@ -42,14 +44,10 @@
 @interface LSIWeatherViewController (CLLocationManagerDelegate) <CLLocationManagerDelegate>
 
 
-
-
-
 @end
 
 
 @implementation LSIWeatherViewController
-
 
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
@@ -80,8 +78,6 @@
     // TODO: Handle settings button pressed
 
 }
-
-
 
 
 //https://developer.apple.com/documentation/corelocation/converting_between_coordinates_and_user-friendly_place_names
@@ -147,8 +143,9 @@
     
     NSURLQueryItem *lat = [NSURLQueryItem queryItemWithName:@"lat" value: latString];
     NSURLQueryItem *lon = [NSURLQueryItem queryItemWithName:@"lon" value: lonString];
+    NSURLQueryItem *unitFOrmat = [NSURLQueryItem queryItemWithName:@"units" value:@"imperial"];
     NSURLQueryItem *appid = [NSURLQueryItem queryItemWithName:@"appid" value: @"edee7c3774cea803358c17ed3bf36159"];
-    components.queryItems = @[lat,lon,appid];
+    components.queryItems = @[lat,lon,unitFOrmat,appid];
     
     NSURL *url = components.URL;
 
@@ -169,14 +166,27 @@
         
         //Parsing
         NSError *parsingError;
-        NSDictionary *weatherJSON = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&parsingError];
+        FGTWeatherForcast *weatherJSON = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&parsingError];
+        
+        //Handle errors
         if(parsingError){
             NSLog(@"Error while parsing: %@", parsingError);
             return;
         };
         
-         NSLog(@"Name: %@",weatherJSON[@"name"]);
-
+        if(!data){
+            NSLog(@"No data return from URL Session.");
+            return;
+        }
+        
+        // NSLog(@"temp: %@",weatherJSON[@"main"][@"temp"]);
+        
+        //FIXME: Create the forecast object
+        //self.forcast = FGTWeatherForcast.new;
+        //self.forcast = weatherJSON;
+        //NSLog(@"TEMP: %@", self.forcast.temperature);
+        //Update view after fetching
+        [self updateViews];
        
     }]resume];
     
@@ -188,6 +198,9 @@
 - (void)updateViews {
     if (self.placemark) {
         // TODO: Update the City, State label
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.locationLabel.text = self.placemark.administrativeArea;
+               });
     }
     
     // TODO: Update the UI based on the current forecast

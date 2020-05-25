@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FGTWeatherForcast : NSObject
 
-@property (nonatomic, readonly, copy) NSString *city;
+@property (nonatomic, readonly, copy) NSString *conditions;
 @property (nonatomic, readonly) NSDate *sunrise;
 @property (nonatomic, readonly) NSDate *sunset;
 @property (nonatomic, readonly) NSNumber *iconID;
@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) double windDirection;
 
 
-- (instancetype)initWithCity:(NSString *)city
+- (instancetype)initWithCity:(NSString *)conditions
                      sunrise:(NSDate *) sunrise
                       sunset:(NSDate *) sunset
                       iconID:(NSNumber *) iconID

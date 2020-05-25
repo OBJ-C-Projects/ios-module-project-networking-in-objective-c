@@ -12,7 +12,7 @@
 @implementation FGTWeatherForcast
 
 
-- (instancetype)initWithCity:(NSString *)city
+- (instancetype)initWithCity:(NSString *)conditions
                      sunrise:(NSDate *) sunrise
                       sunset:(NSDate *) sunset
                       iconID:(NSNumber *) iconID
@@ -20,12 +20,12 @@
                    feelsLike:(double) feelsLike
                     humidity:(double) humidity
                     pressure:(double) pressure
-                       speed:(double) windSpeed
+                   windSpeed:(double) windSpeed
                windDirection:(double) windDirection{
     self = [super init];
     
     if(self){
-        _city = city;
+        _conditions = conditions;
         _sunrise = sunrise;
         _sunset = sunset;
         _iconID = iconID;
@@ -43,18 +43,21 @@
 //Use to represent the depth levels in the Json
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary{
     
-    NSString *city = @"name";
+    
     
     NSDictionary *weather = dictionary[@"weather"];
     NSNumber *iconID = weather[@"id"];
+    NSString *conditions = weather[@"main"];
     
     NSDictionary *main = dictionary[@"main"];
     NSNumber *temperature = main[@"temp"];
     NSNumber *feelsLike = main[@"feels_like"];
     NSNumber *humidity = main[@"humidity"];
     NSNumber *pressure = main[@"pressure"];
-    NSNumber *windSpeed = main[@"speed"];
-    NSNumber *windDirection = main[@"deg"];
+    
+    NSDictionary *wind = dictionary[@"wind"];
+    NSNumber *windSpeed = wind[@"speed"];
+    NSNumber *windDirection = wind[@"deg"];
     
     NSDictionary *sys = dictionary[@"sys"];
     NSNumber *sunrise = sys[@"sunrise"];
@@ -72,11 +75,7 @@
     NSString *windDirectionString = [LSICardinalDirection directionForHeading: windDirection.doubleValue];
     
     
-    
-    
-    
-    return [self initWithCity: city
-            
+    return [self initWithCity: conditions
                       sunrise:sunriseTime
                        sunset:sunsetTime
                        iconID:iconID

@@ -72,7 +72,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="kNb-Up-qkB">
                                                 <rect key="frame" x="20" y="20" width="374" height="212.5"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hxC-5e-GuG">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hxC-5e-GuG">
                                                         <rect key="frame" x="0.0" y="0.0" width="177" height="212.5"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bxu-Os-CKA">
@@ -110,16 +110,16 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VUb-BC-KlY">
-                                                                <rect key="frame" x="0.0" y="155" width="99" height="57.5"/>
+                                                                <rect key="frame" x="0.0" y="155" width="100.5" height="57.5"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHACE OF RAIN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2I-LU-mAU">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="99" height="16"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunrise" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2I-LU-mAU">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="100.5" height="16"/>
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="0.80070098460000005" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TpP-Pn-tJu">
-                                                                        <rect key="frame" x="0.0" y="24" width="99" height="33.5"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5:30AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TpP-Pn-tJu">
+                                                                        <rect key="frame" x="0.0" y="24" width="100.5" height="33.5"/>
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
@@ -166,16 +166,16 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vZh-uH-u6x">
-                                                                <rect key="frame" x="0.0" y="155" width="61" height="57.5"/>
+                                                                <rect key="frame" x="0.0" y="155" width="99.5" height="57.5"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UV INDEX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jog-Ke-QA2">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="61" height="16"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunset" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jog-Ke-QA2">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="99.5" height="16"/>
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="0.80070098460000005" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ln-Ra-aBe">
-                                                                        <rect key="frame" x="0.0" y="24" width="61" height="33.5"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9:00PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ln-Ra-aBe">
+                                                                        <rect key="frame" x="0.0" y="24" width="99.5" height="33.5"/>
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
@@ -230,14 +230,14 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="chanceOfRainLabel" destination="TpP-Pn-tJu" id="p4x-T7-28O"/>
                         <outlet property="feelsLikeLabel" destination="CWp-y3-BgT" id="clC-KM-Cr9"/>
                         <outlet property="humidityLabel" destination="j1w-zE-ecR" id="Ds1-QK-E3U"/>
                         <outlet property="iconLabel" destination="OzS-RV-s9l" id="zf6-nE-PmN"/>
                         <outlet property="locationLabel" destination="fwa-7d-fgA" id="Odk-8R-XTp"/>
                         <outlet property="preassureLabel" destination="4ra-Cq-69c" id="vQy-Kh-8RN"/>
+                        <outlet property="sunriseLabel" destination="TpP-Pn-tJu" id="p4x-T7-28O"/>
+                        <outlet property="sunsetLabel" destination="5ln-Ra-aBe" id="5oL-r5-Y5y"/>
                         <outlet property="temperatureLabel" destination="Y6v-9M-bCR" id="CMt-iP-hyI"/>
-                        <outlet property="uvIndexLabel" destination="5ln-Ra-aBe" id="5oL-r5-Y5y"/>
                         <outlet property="weatherConditionsLabel" destination="bvb-es-rOn" id="6nF-do-M81"/>
                         <outlet property="windLabel" destination="c5f-6q-ybO" id="cpN-4s-au6"/>
                     </connections>
