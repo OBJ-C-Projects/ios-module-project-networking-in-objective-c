@@ -29,7 +29,7 @@
     if (indexPath.row == 0) {
         cell.textLabel.text = @"Today's Weather v.1.0";
     }else if (indexPath.row == 1) {
-        cell.textLabel.text = @"Powered by Dark Sky";
+        cell.textLabel.text = @"Powered by openweathermap";
         cell.textLabel.textColor = UIColor.systemBlueColor;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
@@ -40,7 +40,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.row == 1) {
-        NSURL *url =  [NSURL URLWithString:@"https://darksky.net/poweredby/"];
+        NSURL *url =  [NSURL URLWithString:@"https://openweathermap.org/"];
         [UIApplication.sharedApplication openURL:url options:@{} completionHandler:nil];
     }
 }
