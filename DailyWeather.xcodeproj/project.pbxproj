@@ -54,7 +54,7 @@
 		04280B01246ECB9100228F50 /* FGTWeatherForcast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FGTWeatherForcast.m; sourceTree = "<group>"; };
 		044FAE97246FB83100DDDA43 /* FGTDailyForecast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FGTDailyForecast.h; sourceTree = "<group>"; };
 		044FAE98246FB83100DDDA43 /* FGTDailyForecast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FGTDailyForecast.m; sourceTree = "<group>"; };
-		BD69313223FD905200C0DF09 /* DailyWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD69313223FD905200C0DF09 /* EZWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EZWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD69313523FD905200C0DF09 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BD69313623FD905200C0DF09 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		BD69313823FD905200C0DF09 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
@@ -136,7 +136,7 @@
 		BD69313323FD905200C0DF09 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BD69313223FD905200C0DF09 /* DailyWeather.app */,
+				BD69313223FD905200C0DF09 /* EZWeather.app */,
 				BD69314D23FD905400C0DF09 /* DailyWeatherTests.xctest */,
 			);
 			name = Products;
@@ -235,7 +235,7 @@
 			);
 			name = DailyWeather;
 			productName = DailyWeather;
-			productReference = BD69313223FD905200C0DF09 /* DailyWeather.app */;
+			productReference = BD69313223FD905200C0DF09 /* EZWeather.app */;
 			productType = "com.apple.product-type.application";
 		};
 		BD69314C23FD905400C0DF09 /* DailyWeatherTests */ = {
@@ -427,7 +427,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -479,7 +479,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -498,9 +498,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lambdaschool.DailyWeather;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lambdaschool.EZWeather;
+				PRODUCT_NAME = EZWeather;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -515,9 +515,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lambdaschool.DailyWeather;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lambdaschool.EZWeather;
+				PRODUCT_NAME = EZWeather;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
