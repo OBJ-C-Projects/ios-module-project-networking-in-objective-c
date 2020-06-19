@@ -44,7 +44,7 @@
 // NOTE: You must declare the Category before the main implementation,
 // otherwise you'll see errors about the type not being correct if you
 // try to move delegate methods out of the main implementation body
-@interface LSIWeatherViewController (CLLocationManagerDelegate) <CLLocationManagerDelegate>
+@interface LSIWeatherViewController (CLLocationManagerDelegate) <CLLocationManagerDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
 
 
 @end
@@ -123,7 +123,7 @@
         
         [self requestCurrentPlacemarkForLocation:location withCompletion:^(CLPlacemark *place, NSError *error) {
             
-            NSLog(@"Location: %@, %@", place.locality, place.administrativeArea);
+            //NSLog(@"Location: %@, %@", place.locality, place.administrativeArea);
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.location = location;
@@ -167,7 +167,7 @@
             return;
         }
         
-        NSLog(@"Finished Fetching weather");
+        //NSLog(@"Finished Fetching weather");
         
 //        NSString *dummyData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 //        NSLog(@"Dummy data: %@",dummyData);
@@ -229,26 +229,6 @@
 }
 
 
-/// MARK:CollectionView
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 5;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HourlyForecast"];
-//
-//    [cell setColletionData:bbarray];
-
-    return cell;
-}
-
 /// MARK:Actions
 - (IBAction)toggleUnitsFormatButton:(UIBarButtonItem *)sender {
 
@@ -268,7 +248,7 @@
     //Request data with repective units
     [self requestWeatherForLocation: self.location];
     
-    NSLog(@"Toggle: %d",self.isCelciusEnable);
+    //NSLog(@"Toggle: %d",self.isCelciusEnable);
 }
 
 
@@ -298,6 +278,20 @@
     // Stop updating location after getting one (NOTE: this is faster than doing a single location request)
     [manager stopUpdatingLocation];
 }
+
+/// MARK:CollectionView Methods
+- (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HourlyForecast" forIndexPath:indexPath];
+    
+    return cell;
+}
+
+- (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return 1;
+}
+
+
+
 
 @end
 

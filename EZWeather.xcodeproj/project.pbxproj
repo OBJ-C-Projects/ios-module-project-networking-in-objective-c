@@ -66,7 +66,7 @@
 		BD69314423FD905300C0DF09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BD69314623FD905300C0DF09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD69314723FD905300C0DF09 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		BD69314D23FD905400C0DF09 /* DailyWeatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DailyWeatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD69314D23FD905400C0DF09 /* EZWeatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EZWeatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD69315123FD905400C0DF09 /* DailyWeatherTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DailyWeatherTests.m; sourceTree = "<group>"; };
 		BD69315323FD905400C0DF09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD69315C23FD907800C0DF09 /* LSIWeatherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSIWeatherViewController.h; sourceTree = "<group>"; };
@@ -140,7 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				BD69313223FD905200C0DF09 /* EZWeather.app */,
-				BD69314D23FD905400C0DF09 /* DailyWeatherTests.xctest */,
+				BD69314D23FD905400C0DF09 /* EZWeatherTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -226,9 +226,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BD69313123FD905200C0DF09 /* DailyWeather */ = {
+		BD69313123FD905200C0DF09 /* EZWeather */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BD69315623FD905400C0DF09 /* Build configuration list for PBXNativeTarget "DailyWeather" */;
+			buildConfigurationList = BD69315623FD905400C0DF09 /* Build configuration list for PBXNativeTarget "EZWeather" */;
 			buildPhases = (
 				BD69312E23FD905200C0DF09 /* Sources */,
 				BD69312F23FD905200C0DF09 /* Frameworks */,
@@ -238,14 +238,14 @@
 			);
 			dependencies = (
 			);
-			name = DailyWeather;
+			name = EZWeather;
 			productName = DailyWeather;
 			productReference = BD69313223FD905200C0DF09 /* EZWeather.app */;
 			productType = "com.apple.product-type.application";
 		};
-		BD69314C23FD905400C0DF09 /* DailyWeatherTests */ = {
+		BD69314C23FD905400C0DF09 /* EZWeatherTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BD69315923FD905400C0DF09 /* Build configuration list for PBXNativeTarget "DailyWeatherTests" */;
+			buildConfigurationList = BD69315923FD905400C0DF09 /* Build configuration list for PBXNativeTarget "EZWeatherTests" */;
 			buildPhases = (
 				BD69314923FD905400C0DF09 /* Sources */,
 				BD69314A23FD905400C0DF09 /* Frameworks */,
@@ -256,9 +256,9 @@
 			dependencies = (
 				BD69314F23FD905400C0DF09 /* PBXTargetDependency */,
 			);
-			name = DailyWeatherTests;
+			name = EZWeatherTests;
 			productName = DailyWeatherTests;
-			productReference = BD69314D23FD905400C0DF09 /* DailyWeatherTests.xctest */;
+			productReference = BD69314D23FD905400C0DF09 /* EZWeatherTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -268,7 +268,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1130;
-				ORGANIZATIONNAME = "Lambda, Inc";
+				ORGANIZATIONNAME = "Fritz Gamboa";
 				TargetAttributes = {
 					BD69313123FD905200C0DF09 = {
 						CreatedOnToolsVersion = 11.3.1;
@@ -279,7 +279,7 @@
 					};
 				};
 			};
-			buildConfigurationList = BD69312D23FD905200C0DF09 /* Build configuration list for PBXProject "DailyWeather" */;
+			buildConfigurationList = BD69312D23FD905200C0DF09 /* Build configuration list for PBXProject "EZWeather" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -292,8 +292,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BD69313123FD905200C0DF09 /* DailyWeather */,
-				BD69314C23FD905400C0DF09 /* DailyWeatherTests */,
+				BD69313123FD905200C0DF09 /* EZWeather */,
+				BD69314C23FD905400C0DF09 /* EZWeatherTests */,
 			);
 		};
 /* End PBXProject section */
@@ -366,7 +366,7 @@
 /* Begin PBXTargetDependency section */
 		BD69314F23FD905400C0DF09 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BD69313123FD905200C0DF09 /* DailyWeather */;
+			target = BD69313123FD905200C0DF09 /* EZWeather */;
 			targetProxy = BD69314E23FD905400C0DF09 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -504,7 +504,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lambdaschool.EZWeather;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fritzgt.EZWeather;
 				PRODUCT_NAME = EZWeather;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -521,7 +521,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lambdaschool.EZWeather;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fritzgt.EZWeather;
 				PRODUCT_NAME = EZWeather;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -543,7 +543,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.lambdaschool.DailyWeatherTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DailyWeather.app/DailyWeather";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EZWeather.app/EZWeather";
 			};
 			name = Debug;
 		};
@@ -563,14 +563,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.lambdaschool.DailyWeatherTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DailyWeather.app/DailyWeather";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EZWeather.app/EZWeather";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BD69312D23FD905200C0DF09 /* Build configuration list for PBXProject "DailyWeather" */ = {
+		BD69312D23FD905200C0DF09 /* Build configuration list for PBXProject "EZWeather" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BD69315423FD905400C0DF09 /* Debug */,
@@ -579,7 +579,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BD69315623FD905400C0DF09 /* Build configuration list for PBXNativeTarget "DailyWeather" */ = {
+		BD69315623FD905400C0DF09 /* Build configuration list for PBXNativeTarget "EZWeather" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BD69315723FD905400C0DF09 /* Debug */,
@@ -588,7 +588,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BD69315923FD905400C0DF09 /* Build configuration list for PBXNativeTarget "DailyWeatherTests" */ = {
+		BD69315923FD905400C0DF09 /* Build configuration list for PBXNativeTarget "EZWeatherTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BD69315A23FD905400C0DF09 /* Debug */,

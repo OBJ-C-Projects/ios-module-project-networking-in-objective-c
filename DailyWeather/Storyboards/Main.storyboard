@@ -22,6 +22,9 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Odu-Eh-1SI">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="358.5"/>
                                         <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wallpaperSky" translatesAutoresizingMaskIntoConstraints="NO" id="TYQ-SM-G44">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="895"/>
+                                            </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Y9J-Hb-Oyh">
                                                 <rect key="frame" x="98" y="76" width="218.5" height="206"/>
                                                 <subviews>
@@ -63,13 +66,21 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="TYQ-SM-G44" secondAttribute="bottom" constant="-536.5" id="MaT-nv-pI8"/>
                                             <constraint firstItem="Y9J-Hb-Oyh" firstAttribute="centerX" secondItem="Odu-Eh-1SI" secondAttribute="centerX" id="MlT-Q2-fOw"/>
+                                            <constraint firstItem="TYQ-SM-G44" firstAttribute="top" secondItem="Odu-Eh-1SI" secondAttribute="top" id="RoF-yG-fge"/>
                                             <constraint firstItem="Y9J-Hb-Oyh" firstAttribute="centerY" secondItem="Odu-Eh-1SI" secondAttribute="centerY" id="Zvz-Ix-GTY"/>
+                                            <constraint firstAttribute="trailing" secondItem="TYQ-SM-G44" secondAttribute="trailing" id="ad0-3f-Ld4"/>
+                                            <constraint firstItem="TYQ-SM-G44" firstAttribute="leading" secondItem="Odu-Eh-1SI" secondAttribute="leading" id="tAa-dV-L38"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZwG-Ui-VUZ">
                                         <rect key="frame" x="0.0" y="358.5" width="414" height="537.5"/>
                                         <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wallpaperSky" translatesAutoresizingMaskIntoConstraints="NO" id="jb8-7G-iaZ">
+                                                <rect key="frame" x="0.0" y="268.5" width="414" height="0.0"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
                                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFa-kI-Nfc">
                                                 <rect key="frame" x="0.0" y="446" width="414" height="49"/>
                                                 <items>
@@ -372,5 +383,6 @@
     <resources>
         <image name="clear-day" width="130" height="130"/>
         <image name="info.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="wallpaperSky" width="1080" height="1920"/>
     </resources>
 </document>
