@@ -12,6 +12,7 @@
 #import "LSILog.h"
 #import "FGTWeatherForcast.h"
 #import "LSIWeatherIcons.h"
+#import "FGTHourlyCollectionViewCell.h"
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
@@ -227,6 +228,28 @@
     });
 }
 
+
+/// MARK:CollectionView
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 5;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HourlyForecast"];
+//
+//    [cell setColletionData:bbarray];
+
+    return cell;
+}
+
+/// MARK:Actions
 - (IBAction)toggleUnitsFormatButton:(UIBarButtonItem *)sender {
 
     //self.isCelciusEnable = !self.isCelciusEnable;
@@ -277,3 +300,6 @@
 }
 
 @end
+
+
+
