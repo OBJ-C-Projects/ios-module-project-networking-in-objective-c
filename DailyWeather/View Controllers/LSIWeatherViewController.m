@@ -14,6 +14,9 @@
 #import "LSIWeatherIcons.h"
 #import "FGTHourlyCollectionViewCell.h"
 
+
+#pragma mark - interface
+
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
 }
@@ -49,6 +52,9 @@
 
 @end
 
+
+
+#pragma mark - implementation
 
 @implementation LSIWeatherViewController
 
@@ -229,7 +235,8 @@
 }
 
 
-/// MARK:Actions
+#pragma mark -Actions
+
 - (IBAction)toggleUnitsFormatButton:(UIBarButtonItem *)sender {
 
     //self.isCelciusEnable = !self.isCelciusEnable;
@@ -254,7 +261,9 @@
 
 @end
 
-/// MARK: CLLocationManagerDelegate Methods
+
+
+# pragma mark - CLLocationManagerDelegate Methods
 
 @implementation LSIWeatherViewController(CLLocationManagerDelegate)
 
@@ -279,19 +288,25 @@
     [manager stopUpdatingLocation];
 }
 
-/// MARK:CollectionView Methods
+
+
+#pragma mark - CollectionView Methods
+
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HourlyForecast" forIndexPath:indexPath];
+    
+    cell.backgroundColor = [UIColor redColor];
     
     return cell;
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 1;
+    return 3;
 }
 
-
-
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    return 1;
+}
 
 @end
 

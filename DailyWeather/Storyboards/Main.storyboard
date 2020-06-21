@@ -287,6 +287,11 @@
                                                                         <constraint firstAttribute="bottom" secondItem="MGW-gc-nEv" secondAttribute="bottom" id="egn-NN-4jz"/>
                                                                     </constraints>
                                                                 </collectionViewCellContentView>
+                                                                <connections>
+                                                                    <outlet property="image" destination="gHW-by-ca8" id="BEE-C1-leg"/>
+                                                                    <outlet property="temperature" destination="P5D-uB-Rh9" id="yfq-6G-Fw4"/>
+                                                                    <outlet property="time" destination="jh1-yF-XaT" id="YxR-SP-Sa8"/>
+                                                                </connections>
                                                             </collectionViewCell>
                                                         </cells>
                                                     </collectionView>

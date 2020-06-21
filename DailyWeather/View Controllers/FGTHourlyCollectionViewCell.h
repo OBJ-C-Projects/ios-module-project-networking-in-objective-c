@@ -12,6 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FGTHourlyCollectionViewCell : UICollectionViewCell
 
+@property (strong,nonatomic) IBOutlet UILabel *time;
+@property (strong,nonatomic) IBOutlet UILabel *temperature;
+@property (strong,nonatomic) IBOutlet UIImageView *image;
+
+
 @end
 
 NS_ASSUME_NONNULL_END
