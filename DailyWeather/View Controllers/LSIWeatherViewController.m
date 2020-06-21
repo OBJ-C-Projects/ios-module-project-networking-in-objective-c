@@ -34,7 +34,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *sunriseLabel;
 @property (strong, nonatomic) IBOutlet UILabel *sunsetLabel;
 
-
+@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+                                                         
 
 @property CLLocationManager *locationManager;
 @property CLLocation *location;
@@ -82,6 +83,8 @@
     self.locationManager.delegate = self;
     [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager startUpdatingLocation];
+    
+    [self.collectionView reloadData];
     
     // TODO: Transparent toolbar with info button (Settings)
     // TODO: Handle settings button pressed
@@ -293,9 +296,10 @@
 #pragma mark - CollectionView Methods
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HourlyForecast" forIndexPath:indexPath];
     
-    cell.backgroundColor = [UIColor redColor];
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HourlyForecastCell" forIndexPath:indexPath];
+    
+//    cell.backgroundColor = [UIColor redColor];
     
     return cell;
 }
