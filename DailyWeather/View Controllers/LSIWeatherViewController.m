@@ -299,13 +299,14 @@
     
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HourlyForecastCell" forIndexPath:indexPath];
     
-//    cell.backgroundColor = [UIColor redColor];
+    
     
     return cell;
 }
 
+//TODO: Set to the count of array
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 3;
+    return 7;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
