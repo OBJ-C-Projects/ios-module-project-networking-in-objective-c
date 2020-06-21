@@ -19,9 +19,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, copy) NSString *temperature;
 @property (nonatomic, readonly, copy) NSString *feelsLike;
 @property (nonatomic, readonly, copy) NSString *humidity;
+
+//Conver to get chances or rain and
 @property (nonatomic, readonly, copy) NSString *pressure;
 @property (nonatomic, readonly, copy) NSString *windSpeed;
 @property (nonatomic, readonly, copy) NSString *windDirection;
+
+@property (nonatomic, readonly, copy) NSArray *hourly;
+
 
 
 - (instancetype)initWithCity:(NSString *)conditions
@@ -33,7 +38,8 @@ NS_ASSUME_NONNULL_BEGIN
                     humidity:(NSString *) humidity
                     pressure:(NSString *) pressure
                    windSpeed:(NSString *) windSpeed
-               windDirection:(NSString *) windDirection;
+               windDirection:(NSString *) windDirection
+                hourly:(NSArray *) hourly;
 
 //Use to represent the depth levels in the Json
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;

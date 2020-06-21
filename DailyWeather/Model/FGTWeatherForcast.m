@@ -23,7 +23,8 @@
                     humidity:(NSString *) humidity
                     pressure:(NSString *) pressure
                    windSpeed:(NSString *) windSpeed
-               windDirection:(NSString *) windDirection{
+               windDirection:(NSString *) windDirection
+                      hourly:(NSArray *) hourly{
     self = [super init];
     
     if(self){
@@ -37,6 +38,7 @@
         _pressure = pressure;
         _windSpeed = windSpeed;
         _windDirection = windDirection;
+        _hourly = hourly;
     }
     
     return self;
@@ -103,6 +105,10 @@
     
     NSString *pressureString = [NSString stringWithFormat:@"%@ inHg",pressure];
     
+    
+    //TODO: Create the array with hourly data
+    NSArray *hourlyArray = [NSArray init];
+    
     return [self initWithCity: conditions
                       sunrise:sunriseString
                        sunset:sunsetString
@@ -112,7 +118,8 @@
                      humidity:humidityString
                      pressure:pressureString
                     windSpeed:windSpeedString
-                windDirection:windDirectionString];
+                windDirection:windDirectionString
+                hourly:hourlyArray];
 }
 
 
