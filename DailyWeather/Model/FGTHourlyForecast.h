@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
                           dt:(NSString *) dt
                       iconID:(NSNumber *) iconID;
 
+- (instancetype)initWithDictionary: (NSDictionary *) dictionary;
 @end
 
 NS_ASSUME_NONNULL_END
