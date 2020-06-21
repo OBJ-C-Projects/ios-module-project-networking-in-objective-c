@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		04280B02246ECB9100228F50 /* FGTWeatherForcast.m in Sources */ = {isa = PBXBuildFile; fileRef = 04280B01246ECB9100228F50 /* FGTWeatherForcast.m */; };
+		0430AA51249F2F9C00FAFBA2 /* FGTForecastTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0430AA50249F2F9C00FAFBA2 /* FGTForecastTableViewController.m */; };
 		04377A88249CB2DE00566D53 /* FGTHourlyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04377A87249CB2DE00566D53 /* FGTHourlyCollectionViewCell.m */; };
 		044FAE99246FB83100DDDA43 /* FGTDailyForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 044FAE98246FB83100DDDA43 /* FGTDailyForecast.m */; };
 		BD69313723FD905200C0DF09 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69313623FD905200C0DF09 /* AppDelegate.m */; };
@@ -53,6 +54,8 @@
 /* Begin PBXFileReference section */
 		04280B00246ECB9100228F50 /* FGTWeatherForcast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FGTWeatherForcast.h; sourceTree = "<group>"; };
 		04280B01246ECB9100228F50 /* FGTWeatherForcast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FGTWeatherForcast.m; sourceTree = "<group>"; };
+		0430AA4F249F2F9C00FAFBA2 /* FGTForecastTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FGTForecastTableViewController.h; sourceTree = "<group>"; };
+		0430AA50249F2F9C00FAFBA2 /* FGTForecastTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FGTForecastTableViewController.m; sourceTree = "<group>"; };
 		04377A86249CB2DE00566D53 /* FGTHourlyCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FGTHourlyCollectionViewCell.h; sourceTree = "<group>"; };
 		04377A87249CB2DE00566D53 /* FGTHourlyCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FGTHourlyCollectionViewCell.m; sourceTree = "<group>"; };
 		044FAE97246FB83100DDDA43 /* FGTDailyForecast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FGTDailyForecast.h; sourceTree = "<group>"; };
@@ -197,6 +200,8 @@
 				BD69316C23FD912000C0DF09 /* LSISettingsTableVC.m */,
 				04377A86249CB2DE00566D53 /* FGTHourlyCollectionViewCell.h */,
 				04377A87249CB2DE00566D53 /* FGTHourlyCollectionViewCell.m */,
+				0430AA4F249F2F9C00FAFBA2 /* FGTForecastTableViewController.h */,
+				0430AA50249F2F9C00FAFBA2 /* FGTForecastTableViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -334,6 +339,7 @@
 			files = (
 				044FAE99246FB83100DDDA43 /* FGTDailyForecast.m in Sources */,
 				BD69316523FD90D100C0DF09 /* LSIFileHelper.m in Sources */,
+				0430AA51249F2F9C00FAFBA2 /* FGTForecastTableViewController.m in Sources */,
 				BD69316E23FD912000C0DF09 /* LSISettingsTableVC.m in Sources */,
 				BD69316723FD90D100C0DF09 /* LSILog.m in Sources */,
 				BD69313723FD905200C0DF09 /* AppDelegate.m in Sources */,
