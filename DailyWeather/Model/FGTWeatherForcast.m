@@ -24,7 +24,7 @@
                     pressure:(NSString *) pressure
                    windSpeed:(NSString *) windSpeed
                windDirection:(NSString *) windDirection
-                      hourly:(NSArray *) hourly{
+                      hourly:(NSMutableArray *) hourly{
     self = [super init];
     
     if(self){
@@ -67,7 +67,7 @@
     NSNumber *sunrise = current[@"sunrise"];
     NSNumber *sunset = current[@"sunset"];
     
-    NSDictionary *hourly = dictionary[@"hourly"];
+//    NSDictionary *hourly = dictionary[@"hourly"];
     
     
     //Date Format
@@ -111,8 +111,16 @@
     NSString *pressureString = [NSString stringWithFormat:@"%@ inHg",pressure];
     
     
-    //TODO: Create the array with hourly data
-    NSArray *hourlyArray = [NSArray init];
+    
+    NSMutableArray<FGTHourlyForecast *> *hourlyArray = [[NSMutableArray alloc] init];
+
+    //Setup array of hourly forecast
+    for (int i = 0; i < 24; i++) {
+    NSDictionary *hourly = dictionary[@"hourly"][i];
+    FGTHourlyForecast *hourlyForeCast = [[FGTHourlyForecast alloc] initWithDictionary: hourly];
+        [hourlyArray addObject:hourlyForeCast];
+    }
+
     
     return [self initWithCity: conditions
                       sunrise:sunriseString

@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, copy) NSString *windSpeed;
 @property (nonatomic, readonly, copy) NSString *windDirection;
 
-@property (nonatomic, readonly, copy) NSArray<FGTHourlyForecast *> *hourly;
+@property (nonatomic, readonly, copy) NSMutableArray<FGTHourlyForecast *> *hourly;
 
 
 
@@ -41,7 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
                     pressure:(NSString *) pressure
                    windSpeed:(NSString *) windSpeed
                windDirection:(NSString *) windDirection
-                hourly:(NSArray *) hourly;
+                hourly:(NSMutableArray *) hourly;
 
 //Use to represent the depth levels in the Json
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
