@@ -148,7 +148,7 @@
     
     // TODO: 1. Parse CurrentWeather.json from App Bundle and update UI
     //Base URL: https://openweathermap.org/current
-    NSString *baseURL = @"https://api.openweathermap.org/data/2.5/weather?";
+    NSString *baseURL = @"https://api.openweathermap.org/data/2.5/onecall?";
     
     NSString *latString = [[NSNumber numberWithDouble: location.coordinate.latitude] stringValue];
     NSString *lonString =[[NSNumber numberWithDouble: location.coordinate.longitude] stringValue];

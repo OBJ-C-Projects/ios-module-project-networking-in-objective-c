@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class FGTHourlyForecast;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface FGTWeatherForcast : NSObject
@@ -25,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, copy) NSString *windSpeed;
 @property (nonatomic, readonly, copy) NSString *windDirection;
 
-@property (nonatomic, readonly, copy) NSArray *hourly;
+@property (nonatomic, readonly, copy) NSArray<FGTHourlyForecast *> *hourly;
 
 
 

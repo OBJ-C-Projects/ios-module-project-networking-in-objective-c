@@ -8,7 +8,7 @@
 
 #import "FGTWeatherForcast.h"
 #import "LSICardinalDirection.h"
-
+#import "FGTHourlyForecast.h"
 
 
 @implementation FGTWeatherForcast
@@ -47,23 +47,28 @@
 //Use to represent the depth levels in the Json
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary{
     
-    NSDictionary *weather = dictionary[@"weather"][0];
+    NSDictionary *current = dictionary[@"current"];
+    
+    NSDictionary *weather = current[@"weather"][0];
     NSNumber *iconNum = weather[@"id"];
     NSString *conditions = weather[@"main"];
     
-    NSDictionary *main = dictionary[@"main"];
-    NSNumber *temperature = main[@"temp"];
-    NSNumber *feelsLike = main[@"feels_like"];
-    NSNumber *humidity = main[@"humidity"];
-    NSNumber *pressure = main[@"pressure"];
+    //NSDictionary *main = dictionary[@"main"];
+    NSNumber *temperature = current[@"temp"];
+    NSNumber *feelsLike = current[@"feels_like"];
+    NSNumber *humidity = current[@"humidity"];
+    NSNumber *pressure = current[@"pressure"];
     
-    NSDictionary *wind = dictionary[@"wind"];
-    NSNumber *windSpeed = wind[@"speed"];
-    NSNumber *windDirection = wind[@"deg"];
+    //NSDictionary *wind = dictionary[@"wind"];
+    NSNumber *windSpeed = current[@"speed"];
+    NSNumber *windDirection = current[@"deg"];
     
-    NSDictionary *sys = dictionary[@"sys"];
-    NSNumber *sunrise = sys[@"sunrise"];
-    NSNumber *sunset = sys[@"sunset"];
+    //NSDictionary *sys = dictionary[@"sys"];
+    NSNumber *sunrise = current[@"sunrise"];
+    NSNumber *sunset = current[@"sunset"];
+    
+    NSDictionary *hourly = dictionary[@"hourly"];
+    
     
     //Date Format
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
