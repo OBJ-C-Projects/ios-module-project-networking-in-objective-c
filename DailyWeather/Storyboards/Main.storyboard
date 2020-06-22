@@ -88,14 +88,10 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZwG-Ui-VUZ">
                                         <rect key="frame" x="0.0" y="358.5" width="414" height="537.5"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wallpaperSky" translatesAutoresizingMaskIntoConstraints="NO" id="jb8-7G-iaZ">
-                                                <rect key="frame" x="0.0" y="268.5" width="414" height="0.0"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="zvr-Oy-aFL">
                                                 <rect key="frame" x="0.0" y="8" width="414" height="474"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="kNb-Up-qkB">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="kNb-Up-qkB">
                                                         <rect key="frame" x="59" y="0.0" width="296" height="212.5"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hxC-5e-GuG">
@@ -286,8 +282,8 @@
                                                     </collectionView>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="2aF-us-EVC" firstAttribute="leading" secondItem="zvr-Oy-aFL" secondAttribute="leading" constant="8" id="RSP-Tc-xjh"/>
-                                                    <constraint firstAttribute="trailing" secondItem="2aF-us-EVC" secondAttribute="trailing" constant="8" id="mhN-aa-fQi"/>
+                                                    <constraint firstAttribute="trailing" secondItem="2aF-us-EVC" secondAttribute="trailing" constant="8" id="IdX-9j-6SD"/>
+                                                    <constraint firstItem="2aF-us-EVC" firstAttribute="leading" secondItem="zvr-Oy-aFL" secondAttribute="leading" constant="8" id="j08-tg-asW"/>
                                                 </constraints>
                                             </stackView>
                                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFa-kI-Nfc">
@@ -316,12 +312,14 @@
                                         <color key="backgroundColor" red="0.0" green="0.3411764705882353" blue="0.71372549019607845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="KFa-kI-Nfc" secondAttribute="bottom" constant="11" id="2PH-L3-0Hu"/>
-                                            <constraint firstAttribute="trailing" secondItem="KFa-kI-Nfc" secondAttribute="trailing" id="CmG-qS-z1z"/>
-                                            <constraint firstAttribute="trailing" secondItem="zvr-Oy-aFL" secondAttribute="trailing" id="DVZ-zI-hsq"/>
-                                            <constraint firstItem="KFa-kI-Nfc" firstAttribute="leading" secondItem="ZwG-Ui-VUZ" secondAttribute="leading" id="JNT-Pe-Ukh"/>
-                                            <constraint firstItem="zvr-Oy-aFL" firstAttribute="leading" secondItem="ZwG-Ui-VUZ" secondAttribute="leading" id="WXx-kL-5Gx"/>
+                                            <constraint firstAttribute="trailing" secondItem="zvr-Oy-aFL" secondAttribute="trailing" id="6cm-qC-Nza"/>
+                                            <constraint firstItem="zvr-Oy-aFL" firstAttribute="leading" secondItem="ZwG-Ui-VUZ" secondAttribute="leading" id="EYz-ju-Nds"/>
+                                            <constraint firstItem="KFa-kI-Nfc" firstAttribute="leading" secondItem="ZwG-Ui-VUZ" secondAttribute="leading" id="NXj-zn-zY0"/>
+                                            <constraint firstAttribute="trailing" secondItem="zvr-Oy-aFL" secondAttribute="trailing" id="OBZ-eP-qR5"/>
                                             <constraint firstItem="KFa-kI-Nfc" firstAttribute="top" secondItem="zvr-Oy-aFL" secondAttribute="bottom" constant="-0.5" id="fHC-Jj-3wR"/>
+                                            <constraint firstItem="zvr-Oy-aFL" firstAttribute="leading" secondItem="ZwG-Ui-VUZ" secondAttribute="leading" id="hoM-bS-Fzi"/>
                                             <constraint firstItem="zvr-Oy-aFL" firstAttribute="top" secondItem="ZwG-Ui-VUZ" secondAttribute="top" constant="8" id="mqv-fV-shk"/>
+                                            <constraint firstAttribute="trailing" secondItem="KFa-kI-Nfc" secondAttribute="trailing" id="xam-2j-joZ"/>
                                         </constraints>
                                     </view>
                                 </subviews>

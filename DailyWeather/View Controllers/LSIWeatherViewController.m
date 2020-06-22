@@ -307,10 +307,7 @@
         if(indexPath.row == 0){
             cell.time.text = @"Now";
         }else{
-            //Format string to remove zeros from time
-            NSString *formatString = data.dt;
-            formatString = [formatString stringByReplacingOccurrencesOfString:@":00" withString:@""];
-            cell.time.text = formatString;
+            cell.time.text = data.dt;
         }
         cell.temperature.text = data.temp;
         

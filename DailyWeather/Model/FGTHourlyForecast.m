@@ -53,6 +53,8 @@
     //Current time
     NSDate *currentTime = [NSDate dateWithTimeIntervalSinceReferenceDate: dt.doubleValue];
     NSString *currentTimeString = [dateFormatter stringFromDate:currentTime];
+    //Format string to remove zeros from time making it shorter
+    currentTimeString = [currentTimeString stringByReplacingOccurrencesOfString:@":00" withString:@""];
     
     return [self initWithTemp: tempString
                            dt:currentTimeString
