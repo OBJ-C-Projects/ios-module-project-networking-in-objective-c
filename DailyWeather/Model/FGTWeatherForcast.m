@@ -114,7 +114,7 @@
     
     NSMutableArray<FGTHourlyForecast *> *hourlyArray = [[NSMutableArray alloc] init];
 
-    //Setup array of hourly forecast
+    //Setup array of next 24hr forecast
     for (int i = 0; i < 24; i++) {
     NSDictionary *hourly = dictionary[@"hourly"][i];
     FGTHourlyForecast *hourlyForeCast = [[FGTHourlyForecast alloc] initWithDictionary: hourly];

@@ -13,7 +13,7 @@
 #import "FGTWeatherForcast.h"
 #import "LSIWeatherIcons.h"
 #import "FGTHourlyCollectionViewCell.h"
-
+#import "FGTHourlyForecast.h"
 
 #pragma mark - interface
 
@@ -234,7 +234,9 @@
             
             self.iconLabel.image = uiIcon;
         }
+        [self.collectionView reloadData];
     });
+    
 }
 
 
@@ -297,10 +299,25 @@
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HourlyForecastCell" forIndexPath:indexPath];
+    FGTHourlyCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HourlyForecastCell" forIndexPath:indexPath];
     
+    FGTHourlyForecast *data = self.forcast.hourly[indexPath.row];
     
-    
+    if (data) {
+        if(indexPath.row == 0){
+            cell.time.text = @"Now";
+        }else{
+            //Format string to remove zeros from time
+            NSString *formatString = data.dt;
+            formatString = [formatString stringByReplacingOccurrencesOfString:@":00" withString:@""];
+            cell.time.text = formatString;
+        }
+        cell.temperature.text = data.temp;
+        
+        UIImage *uiIconImage = [LSIWeatherIcons weatherImageForIconName: data.iconID];
+        
+        cell.image.image = uiIconImage;
+    }
     return cell;
 }
 
