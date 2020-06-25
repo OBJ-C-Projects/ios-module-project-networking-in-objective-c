@@ -60,8 +60,8 @@
     NSNumber *pressure = current[@"pressure"];
     
     //NSDictionary *wind = dictionary[@"wind"];
-    NSNumber *windSpeed = current[@"speed"];
-    NSNumber *windDirection = current[@"deg"];
+    NSNumber *windSpeed = current[@"wind_speed"];
+    NSNumber *windDirection = current[@"wind_deg"];
     
     //NSDictionary *sys = dictionary[@"sys"];
     NSNumber *sunrise = current[@"sunrise"];
