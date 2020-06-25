@@ -103,7 +103,7 @@
     NSString *temp= [NSString stringWithFormat:@"%@%@",[formater stringFromNumber: temperature], tempFormat];
     NSString *feels = [NSString stringWithFormat:@"%@%@",[formater stringFromNumber: feelsLike],tempFormat];
     
-    NSString *speedFormat = isCelciusEnable ? @"mph" : @"km";
+    NSString *speedFormat = isCelciusEnable ? @"mph" : @"km/h";
     NSString *windSpeedString = [NSString stringWithFormat:@"%@ %@ %@ ", windDirectionString,[formater stringFromNumber: windSpeed],speedFormat];
     
     NSString *humidityString = [NSString stringWithFormat:@"%@%@", humidity,@"%"];

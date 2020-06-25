@@ -339,6 +339,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="bgImageView" destination="TYQ-SM-G44" id="jw6-rI-JYL"/>
                         <outlet property="collectionView" destination="2aF-us-EVC" id="2sB-KM-YOP"/>
                         <outlet property="feelsLikeLabel" destination="CWp-y3-BgT" id="clC-KM-Cr9"/>
                         <outlet property="humidityLabel" destination="j1w-zE-ecR" id="Ds1-QK-E3U"/>

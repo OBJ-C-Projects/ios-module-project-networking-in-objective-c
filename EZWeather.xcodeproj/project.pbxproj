@@ -12,6 +12,7 @@
 		04377A88249CB2DE00566D53 /* FGTHourlyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04377A87249CB2DE00566D53 /* FGTHourlyCollectionViewCell.m */; };
 		044FAE99246FB83100DDDA43 /* FGTDailyForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 044FAE98246FB83100DDDA43 /* FGTDailyForecast.m */; };
 		0455CA22249FB754003D2679 /* FGTHourlyForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 0455CA21249FB754003D2679 /* FGTHourlyForecast.m */; };
+		04D71E7724A4AB270080E9F2 /* FGTFetchWeatherData.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D71E7624A4AB270080E9F2 /* FGTFetchWeatherData.m */; };
 		BD69313723FD905200C0DF09 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69313623FD905200C0DF09 /* AppDelegate.m */; };
 		BD69313A23FD905200C0DF09 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69313923FD905200C0DF09 /* SceneDelegate.m */; };
 		BD69314223FD905300C0DF09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD69314123FD905300C0DF09 /* Assets.xcassets */; };
@@ -63,6 +64,8 @@
 		044FAE98246FB83100DDDA43 /* FGTDailyForecast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FGTDailyForecast.m; sourceTree = "<group>"; };
 		0455CA20249FB754003D2679 /* FGTHourlyForecast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FGTHourlyForecast.h; sourceTree = "<group>"; };
 		0455CA21249FB754003D2679 /* FGTHourlyForecast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FGTHourlyForecast.m; sourceTree = "<group>"; };
+		04D71E7524A4AB270080E9F2 /* FGTFetchWeatherData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FGTFetchWeatherData.h; sourceTree = "<group>"; };
+		04D71E7624A4AB270080E9F2 /* FGTFetchWeatherData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FGTFetchWeatherData.m; sourceTree = "<group>"; };
 		BD69313223FD905200C0DF09 /* EZWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EZWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD69313523FD905200C0DF09 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BD69313623FD905200C0DF09 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -218,6 +221,8 @@
 				BD69317023FD918B00C0DF09 /* LSIWeatherIcons.m */,
 				BDFC8F7023FD999000A39B21 /* LSICardinalDirection.h */,
 				BDFC8F7123FD999000A39B21 /* LSICardinalDirection.m */,
+				04D71E7524A4AB270080E9F2 /* FGTFetchWeatherData.h */,
+				04D71E7624A4AB270080E9F2 /* FGTFetchWeatherData.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -347,6 +352,7 @@
 				0430AA51249F2F9C00FAFBA2 /* FGTForecastTableViewController.m in Sources */,
 				BD69316E23FD912000C0DF09 /* LSISettingsTableVC.m in Sources */,
 				BD69316723FD90D100C0DF09 /* LSILog.m in Sources */,
+				04D71E7724A4AB270080E9F2 /* FGTFetchWeatherData.m in Sources */,
 				BD69313723FD905200C0DF09 /* AppDelegate.m in Sources */,
 				BDFC8F7223FD999000A39B21 /* LSICardinalDirection.m in Sources */,
 				04377A88249CB2DE00566D53 /* FGTHourlyCollectionViewCell.m in Sources */,
