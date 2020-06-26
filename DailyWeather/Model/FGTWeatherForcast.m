@@ -99,11 +99,11 @@
     [formater setRoundingMode:NSNumberFormatterRoundUp];
     
     
-    NSString *tempFormat = isCelciusEnable ? @"°F" : @"°C";
+    NSString *tempFormat = isCelciusEnable ? @"°C" : @"°F";
     NSString *temp= [NSString stringWithFormat:@"%@%@",[formater stringFromNumber: temperature], tempFormat];
     NSString *feels = [NSString stringWithFormat:@"%@%@",[formater stringFromNumber: feelsLike],tempFormat];
     
-    NSString *speedFormat = isCelciusEnable ? @"mph" : @"km/h";
+    NSString *speedFormat = isCelciusEnable ? @"km/h" : @"mph";
     NSString *windSpeedString = [NSString stringWithFormat:@"%@ %@ %@ ", windDirectionString,[formater stringFromNumber: windSpeed],speedFormat];
     
     NSString *humidityString = [NSString stringWithFormat:@"%@%@", humidity,@"%"];

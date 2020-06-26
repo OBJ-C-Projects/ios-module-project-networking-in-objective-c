@@ -24,7 +24,7 @@
     
     NSURLQueryItem *lat = [NSURLQueryItem queryItemWithName:@"lat" value: latString];
     NSURLQueryItem *lon = [NSURLQueryItem queryItemWithName:@"lon" value: lonString];
-    NSURLQueryItem *unitFormat = [NSURLQueryItem queryItemWithName:@"units" value: isCelciusEnable ? @"imperial" : @"metric"];
+    NSURLQueryItem *unitFormat = [NSURLQueryItem queryItemWithName:@"units" value: isCelciusEnable ? @"metric" : @"imperial"];
     
     NSURLQueryItem *appid = [NSURLQueryItem queryItemWithName:@"appid" value: @"edee7c3774cea803358c17ed3bf36159"];
     components.queryItems = @[lat,lon,unitFormat,appid];

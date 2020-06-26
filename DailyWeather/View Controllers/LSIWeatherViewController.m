@@ -87,10 +87,6 @@
     [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager startUpdatingLocation];
     
-    [self.collectionView reloadData];
-    
-    // TODO: Transparent toolbar with info button (Settings)
-    // TODO: Handle settings button pressed
     NSUserDefaults *userDefaultsPref = [NSUserDefaults standardUserDefaults];
     bool isCelcius = [userDefaultsPref boolForKey:@"isCelciusEnable"];
     self.isCelciusEnable = isCelcius;
@@ -134,8 +130,6 @@
         __block BOOL requestedLocation = _requestedLocation;
         
         [self requestCurrentPlacemarkForLocation:location withCompletion:^(CLPlacemark *place, NSError *error) {
-            
-            //NSLog(@"Location: %@, %@", place.locality, place.administrativeArea);
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.location = location;
