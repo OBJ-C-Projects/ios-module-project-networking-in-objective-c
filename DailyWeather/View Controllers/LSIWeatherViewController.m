@@ -48,15 +48,10 @@
 
 @end
 
-// NOTE: You must declare the Category before the main implementation,
-// otherwise you'll see errors about the type not being correct if you
-// try to move delegate methods out of the main implementation body
 @interface LSIWeatherViewController (CLLocationManagerDelegate) <CLLocationManagerDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
 
 
 @end
-
-
 
 #pragma mark - implementation
 
@@ -91,7 +86,6 @@
     bool isCelcius = [userDefaultsPref boolForKey:@"isCelciusEnable"];
     self.isCelciusEnable = isCelcius;
 }
-
 
 //https://developer.apple.com/documentation/corelocation/converting_between_coordinates_and_user-friendly_place_names
 - (void)requestCurrentPlacemarkForLocation:(CLLocation *)location
@@ -214,7 +208,6 @@
 
 
 @end
-
 
 
 # pragma mark - CLLocationManagerDelegate Methods
