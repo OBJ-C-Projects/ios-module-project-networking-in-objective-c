@@ -402,6 +402,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="u00-Dx-kFa"/>
+                    <connections>
+                        <outlet property="searchBar" destination="YF9-bl-UDP" id="vLA-UO-SAT"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hNL-Z0-hTd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

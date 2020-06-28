@@ -10,6 +10,9 @@
 
 @interface FGTForecastTableViewController ()
 
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
+
+
 @end
 
 @implementation FGTForecastTableViewController
