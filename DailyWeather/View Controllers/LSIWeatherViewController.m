@@ -174,7 +174,7 @@
             self.sunsetLabel.text = self.forcast.sunset;
             self.iconLabel.image = [UIImage imageNamed: self.forcast.icon];
 
-            
+            NSLog(@"Logo: %@", self.forcast.icon);
         }
             
         [self.collectionView reloadData];
