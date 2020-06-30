@@ -14,12 +14,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,readonly,copy) NSString *temp;
 @property (nonatomic,readonly,copy) NSString *dt;
-@property (nonatomic, readonly) NSNumber *iconID;
+@property (nonatomic, readonly,copy) NSString *icon;
 
 
 - (instancetype)initWithTemp:(NSString *)temp
                           dt:(NSString *) dt
-                      iconID:(NSNumber *) iconID;
+                      icon:(NSString *) icon;
 
 - (instancetype)initWithDictionary: (NSDictionary *) dictionary;
 @end

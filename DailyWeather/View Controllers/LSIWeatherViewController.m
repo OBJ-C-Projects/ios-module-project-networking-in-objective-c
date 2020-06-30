@@ -172,13 +172,11 @@
             self.preassureLabel.text = self.forcast.pressure;
             self.sunriseLabel.text = self.forcast.sunrise;
             self.sunsetLabel.text = self.forcast.sunset;
+            self.iconLabel.image = [UIImage imageNamed: self.forcast.icon];
+
             
-            
-            //Setup icon
-            UIImage *uiIcon = [LSIWeatherIcons weatherImageForIconName: self.forcast.iconID];
-            
-            self.iconLabel.image = uiIcon;
         }
+            
         [self.collectionView reloadData];
     });
     
@@ -251,11 +249,11 @@
         }else{
             cell.time.text = data.dt;
         }
+        
         cell.temperature.text = data.temp;
+
         
-        UIImage *uiIconImage = [LSIWeatherIcons weatherImageForIconName: data.iconID];
-        
-        cell.image.image = uiIconImage;
+        cell.image.image = [UIImage imageNamed: data.icon];
     }
     return cell;
 }

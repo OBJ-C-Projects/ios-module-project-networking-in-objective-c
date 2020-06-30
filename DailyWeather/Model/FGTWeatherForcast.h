@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, copy) NSString *conditions;
 @property (nonatomic, readonly, copy) NSString *sunrise;
 @property (nonatomic, readonly, copy) NSString *sunset;
-@property (nonatomic, readonly) NSNumber *iconID;
+@property (nonatomic, readonly, copy) NSString *icon;
 @property (nonatomic, readonly, copy) NSString *temperature;
 @property (nonatomic, readonly, copy) NSString *feelsLike;
 @property (nonatomic, readonly, copy) NSString *humidity;
@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithCity:(NSString *)conditions
                      sunrise:(NSString *) sunrise
                       sunset:(NSString *) sunset
-                      iconID:(NSNumber *) iconID
+                      icon:(NSString *) icon
                  temperature:(NSString *) temperature
                    feelsLike:(NSString *) feelsLike
                     humidity:(NSString *) humidity

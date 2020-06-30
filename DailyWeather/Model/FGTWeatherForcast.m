@@ -17,7 +17,7 @@
 - (instancetype)initWithCity:(NSString *)conditions
                      sunrise:(NSString *) sunrise
                       sunset:(NSString *) sunset
-                      iconID:(NSNumber*) iconID
+                      icon:(NSString *) icon
                  temperature:(NSString *) temperature
                    feelsLike:(NSString *) feelsLike
                     humidity:(NSString *) humidity
@@ -31,7 +31,7 @@
         _conditions = conditions;
         _sunrise = sunrise;
         _sunset = sunset;
-        _iconID = iconID;
+        _icon = icon;
         _temperature = temperature;
         _feelsLike = feelsLike;
         _humidity = humidity;
@@ -50,7 +50,7 @@
     NSDictionary *current = dictionary[@"current"];
     
     NSDictionary *weather = current[@"weather"][0];
-    NSNumber *iconNum = weather[@"id"];
+    NSString *iconNum = weather[@"icon"];
     NSString *conditions = weather[@"main"];
     
     //NSDictionary *main = dictionary[@"main"];
@@ -125,7 +125,7 @@
     return [self initWithCity: conditions
                       sunrise:sunriseString
                        sunset:sunsetString
-                       iconID: iconNum
+                       icon: iconNum
                   temperature:temp
                     feelsLike:feels
                      humidity:humidityString

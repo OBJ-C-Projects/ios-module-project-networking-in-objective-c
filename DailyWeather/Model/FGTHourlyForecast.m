@@ -13,14 +13,14 @@
 
 - (instancetype)initWithTemp:(NSString *)temp
                           dt:(NSString *) dt
-                      iconID:(NSNumber *) iconID{
+                      icon:(NSString *) icon{
     
     self = [super init];
     
     if(self){
         _temp = temp;
         _dt = dt;
-        _iconID = iconID;
+        _icon = icon;
     }
     
     return self;
@@ -30,7 +30,7 @@
     
     //Extrating JSON
     NSDictionary *weather = dictionary[@"weather"][0];
-    NSNumber *iconNum = weather[@"id"];
+    NSString *iconNum = weather[@"icon"];
     
     NSNumber *temperature = dictionary[@"temp"];
     
@@ -56,9 +56,11 @@
     //Format string to remove zeros from time making it shorter
     currentTimeString = [currentTimeString stringByReplacingOccurrencesOfString:@":00" withString:@""];
     
+     
+    
     return [self initWithTemp: tempString
                            dt:currentTimeString
-                       iconID: iconNum
+                       icon: iconNum
             ];
 }
 
