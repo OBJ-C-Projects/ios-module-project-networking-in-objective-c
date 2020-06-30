@@ -174,7 +174,11 @@
             self.sunsetLabel.text = self.forcast.sunset;
             self.iconLabel.image = [UIImage imageNamed: self.forcast.icon];
 
-            NSLog(@"Logo: %@", self.forcast.icon);
+            if([self.forcast.icon containsString:@"d"]){
+                self.bgImageView.image = [UIImage imageNamed:@"day"];
+            }else{
+                self.bgImageView.image = [UIImage imageNamed:@"night"];
+            }
         }
             
         [self.collectionView reloadData];
