@@ -30,10 +30,10 @@
 @property (strong, nonatomic) IBOutlet UIImageView *bgImageView;
 
 
-@property (strong, nonatomic) IBOutlet UILabel *windLabel;
-@property (strong, nonatomic) IBOutlet UILabel *feelsLikeLabel;
 @property (strong, nonatomic) IBOutlet UILabel *humidityLabel;
-@property (strong, nonatomic) IBOutlet UILabel *preassureLabel;
+@property (strong, nonatomic) IBOutlet UILabel *feelsLikeLabel;
+@property (strong, nonatomic) IBOutlet UILabel *lowTempLabel;
+@property (strong, nonatomic) IBOutlet UILabel *highTempLabel;
 @property (strong, nonatomic) IBOutlet UILabel *sunriseLabel;
 @property (strong, nonatomic) IBOutlet UILabel *sunsetLabel;
 
@@ -166,10 +166,10 @@
             //Setup Labels
              self.weatherConditionsLabel.text = self.forcast.conditions;
             self.temperatureLabel.text = self.forcast.temperature;
-            self.windLabel.text = self.forcast.windSpeed;
+            //self.humidityLabel.text = self.forcast.windSpeed;
             self.feelsLikeLabel.text = self.forcast.feelsLike;
             self.humidityLabel.text = self.forcast.humidity;
-            self.preassureLabel.text = self.forcast.pressure;
+            //self.highTempLabel.text = self.forcast.pressure;
             self.sunriseLabel.text = self.forcast.sunrise;
             self.sunsetLabel.text = self.forcast.sunset;
             self.iconLabel.image = [UIImage imageNamed: self.forcast.icon];
