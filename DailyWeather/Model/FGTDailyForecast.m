@@ -26,6 +26,26 @@
 
 - (instancetype)initWithDictionary: (NSDictionary *) dictionary{
     
+    //Extracting JSON
+    NSNumber *date = dictionary[@"dt"];
+    
+    NSDictionary *temp = dictionary[@"temp"];
+    
+    NSDictionary *min = temp[@"min"];
+    NSDictionary *max = temp[@"max"];
+    
+    //Formating Extracted data
+    
+    //1.Date
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.timeStyle = NSDateFormatterShortStyle;
+    dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+    NSDate *currentTime = [NSDate dateWithTimeIntervalSinceReferenceDate:date.doubleValue];
+    NSString *dateString = [dateFormatter stringFromDate:currentTime];
+    
+    //2.Temperature
+    
+    
     return nil;
 }
 
