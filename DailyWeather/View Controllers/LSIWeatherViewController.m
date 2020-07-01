@@ -15,6 +15,7 @@
 #import "FGTHourlyCollectionViewCell.h"
 #import "FGTHourlyForecast.h"
 #import "FGTFetchWeatherData.h"
+#import "FGTDailyForecast.h"
 
 
 #pragma mark - interface
@@ -155,21 +156,19 @@
 - (void)updateViews {
     dispatch_async(dispatch_get_main_queue(), ^{
         if (self.placemark) {
-            // TODO: Update the City, State label
-            
             self.locationLabel.text = self.placemark.administrativeArea;
-            
         }
         
-        // TODO: Update the UI based on the current forecast
+        
         if(self.forcast){
+            
+            FGTDailyForecast *daily = self.forcast.daily.firstObject;
             //Setup Labels
-             self.weatherConditionsLabel.text = self.forcast.conditions;
+            self.weatherConditionsLabel.text = self.forcast.conditions;
             self.temperatureLabel.text = self.forcast.temperature;
-            //self.humidityLabel.text = self.forcast.windSpeed;
             self.feelsLikeLabel.text = self.forcast.feelsLike;
             self.humidityLabel.text = self.forcast.humidity;
-            //self.highTempLabel.text = self.forcast.pressure;
+           
             self.sunriseLabel.text = self.forcast.sunrise;
             self.sunsetLabel.text = self.forcast.sunset;
             self.iconLabel.image = [UIImage imageNamed: self.forcast.icon];
@@ -178,6 +177,11 @@
                 self.bgImageView.image = [UIImage imageNamed:@"day"];
             }else{
                 self.bgImageView.image = [UIImage imageNamed:@"night"];
+            }
+            
+            if(daily){
+                self.lowTempLabel.text = [NSString stringWithFormat:@"%@°/%@°",daily.min, daily.max];
+//                self.highTempLabel.text = daily.max;
             }
         }
             
