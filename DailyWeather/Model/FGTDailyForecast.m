@@ -10,4 +10,23 @@
 
 @implementation FGTDailyForecast
 
+- (instancetype)initWithDt:(NSString *)dt
+                       min:(NSString *)min
+                       max:(NSString *)max{
+    self = [super init];
+    
+    if (self){
+        _dt = dt;
+        _min = min;
+        _max = max;
+    }
+    return self;
+}
+
+
+- (instancetype)initWithDictionary: (NSDictionary *) dictionary{
+    
+    return nil;
+}
+
 @end

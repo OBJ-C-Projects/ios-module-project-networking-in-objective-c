@@ -12,6 +12,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FGTDailyForecast : NSObject
 
+@property (nonatomic, readonly, copy) NSString *dt;
+@property (nonatomic, readonly,copy) NSString *min;
+@property (nonatomic, readonly, copy) NSString *max;
+
+- (instancetype)initWithDt:(NSString *)dt
+                       min:(NSString *)min
+                       max:(NSString *)max;
+
+- (instancetype)initWithDictionary: (NSDictionary *) dictionary;
+
 @end
 
 NS_ASSUME_NONNULL_END
