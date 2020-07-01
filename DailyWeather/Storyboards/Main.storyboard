@@ -65,24 +65,11 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bIS-20-Pvy">
-                                                <rect key="frame" x="357" y="56" width="35" height="31"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="35" id="GR8-u9-YKV"/>
-                                                    <constraint firstAttribute="width" constant="35" id="Vqf-TP-6VY"/>
-                                                </constraints>
-                                                <state key="normal" backgroundImage="plus" catalog="system"/>
-                                                <connections>
-                                                    <segue destination="cOp-LS-P5S" kind="show" identifier="ForecastListSegue" id="8FC-05-03a"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="bIS-20-Pvy" firstAttribute="top" secondItem="Odu-Eh-1SI" secondAttribute="top" constant="54" id="IBH-Xm-qHv"/>
                                             <constraint firstItem="Y9J-Hb-Oyh" firstAttribute="centerX" secondItem="Odu-Eh-1SI" secondAttribute="centerX" id="MlT-Q2-fOw"/>
                                             <constraint firstItem="Y9J-Hb-Oyh" firstAttribute="centerY" secondItem="Odu-Eh-1SI" secondAttribute="centerY" id="Zvz-Ix-GTY"/>
-                                            <constraint firstAttribute="trailing" secondItem="bIS-20-Pvy" secondAttribute="trailing" constant="22" id="bKE-sf-bhT"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZwG-Ui-VUZ">
@@ -342,11 +329,11 @@
                         <outlet property="bgImageView" destination="TYQ-SM-G44" id="jw6-rI-JYL"/>
                         <outlet property="collectionView" destination="2aF-us-EVC" id="2sB-KM-YOP"/>
                         <outlet property="feelsLikeLabel" destination="CWp-y3-BgT" id="clC-KM-Cr9"/>
-                        <outlet property="highTempLabel" destination="4ra-Cq-69c" id="kj9-wc-4ZR"/>
                         <outlet property="humidityLabel" destination="c5f-6q-ybO" id="cpN-4s-au6"/>
                         <outlet property="iconLabel" destination="OzS-RV-s9l" id="zf6-nE-PmN"/>
                         <outlet property="locationLabel" destination="fwa-7d-fgA" id="Odk-8R-XTp"/>
                         <outlet property="lowTempLabel" destination="j1w-zE-ecR" id="Ds1-QK-E3U"/>
+                        <outlet property="precipitationProbLabel" destination="4ra-Cq-69c" id="kj9-wc-4ZR"/>
                         <outlet property="sunriseLabel" destination="TpP-Pn-tJu" id="p4x-T7-28O"/>
                         <outlet property="sunsetLabel" destination="5ln-Ra-aBe" id="5oL-r5-Y5y"/>
                         <outlet property="temperatureLabel" destination="Y6v-9M-bCR" id="CMt-iP-hyI"/>
@@ -356,59 +343,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="250.72463768115944" y="130.58035714285714"/>
-        </scene>
-        <!--Forecast Table View Controller-->
-        <scene sceneID="qeV-Qd-RKq">
-            <objects>
-                <tableViewController id="cOp-LS-P5S" customClass="FGTForecastTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="CZ9-hK-9HX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="YF9-bl-UDP">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </searchBar>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CitiesListCell" textLabel="YYl-Li-ACR" detailTextLabel="g09-vD-vPS" style="IBUITableViewCellStyleValue1" id="KQ5-yM-IdT">
-                                <rect key="frame" x="0.0" y="72" width="414" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KQ5-yM-IdT" id="wCh-dS-PPk">
-                                    <rect key="frame" x="0.0" y="0.0" width="383" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YYl-Li-ACR">
-                                            <rect key="frame" x="20" y="12" width="33.5" height="20.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="g09-vD-vPS">
-                                            <rect key="frame" x="331" y="12" width="44" height="20.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="cOp-LS-P5S" id="I0r-uG-cly"/>
-                            <outlet property="delegate" destination="cOp-LS-P5S" id="hv9-PK-xWa"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="u00-Dx-kFa"/>
-                    <connections>
-                        <outlet property="searchBar" destination="YF9-bl-UDP" id="vLA-UO-SAT"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hNL-Z0-hTd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1273" y="-202"/>
         </scene>
         <!--Settings-->
         <scene sceneID="Iuo-Nt-Ubb">
@@ -437,13 +371,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qMq-om-ZDf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1307" y="483"/>
+            <point key="canvasLocation" x="1328" y="131"/>
         </scene>
     </scenes>
     <resources>
         <image name="01d" width="130" height="130"/>
         <image name="day" width="1080" height="1920"/>
         <image name="info.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="plus" catalog="system" width="128" height="113"/>
     </resources>
 </document>

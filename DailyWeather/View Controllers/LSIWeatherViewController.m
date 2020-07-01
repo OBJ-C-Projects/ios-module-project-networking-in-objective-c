@@ -34,7 +34,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *humidityLabel;
 @property (strong, nonatomic) IBOutlet UILabel *feelsLikeLabel;
 @property (strong, nonatomic) IBOutlet UILabel *lowTempLabel;
-@property (strong, nonatomic) IBOutlet UILabel *highTempLabel;
+@property (strong, nonatomic) IBOutlet UILabel *precipitationProbLabel;
 @property (strong, nonatomic) IBOutlet UILabel *sunriseLabel;
 @property (strong, nonatomic) IBOutlet UILabel *sunsetLabel;
 
@@ -181,7 +181,6 @@
             
             if(daily){
                 self.lowTempLabel.text = [NSString stringWithFormat:@"%@°/%@°",daily.min, daily.max];
-//                self.highTempLabel.text = daily.max;
             }
         }
             
