@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class FGTHourlyForecast;
+@class FGTDailyForecast;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -28,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, copy) NSString *windDirection;
 
 @property (nonatomic, readonly, copy) NSMutableArray<FGTHourlyForecast *> *hourly;
-
+@property (nonatomic, readonly, copy) NSMutableArray<FGTDailyForecast *> *daily;
 
 
 - (instancetype)initWithCity:(NSString *)conditions
@@ -41,7 +42,8 @@ NS_ASSUME_NONNULL_BEGIN
                     pressure:(NSString *) pressure
                    windSpeed:(NSString *) windSpeed
                windDirection:(NSString *) windDirection
-                hourly:(NSMutableArray *) hourly;
+                hourly:(NSMutableArray *) hourly
+                daily:(NSMutableArray *) daily;
 
 //Use to represent the depth levels in the Json
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;

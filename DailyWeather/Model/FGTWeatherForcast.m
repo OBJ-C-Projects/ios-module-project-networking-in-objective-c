@@ -9,7 +9,7 @@
 #import "FGTWeatherForcast.h"
 #import "LSICardinalDirection.h"
 #import "FGTHourlyForecast.h"
-
+#import "FGTDailyForecast.h"
 
 @implementation FGTWeatherForcast
 
@@ -24,7 +24,8 @@
                     pressure:(NSString *) pressure
                    windSpeed:(NSString *) windSpeed
                windDirection:(NSString *) windDirection
-                      hourly:(NSMutableArray *) hourly{
+                      hourly:(NSMutableArray *) hourly
+                       daily: (NSMutableArray *) daily{
     self = [super init];
     
     if(self){
@@ -39,6 +40,7 @@
         _windSpeed = windSpeed;
         _windDirection = windDirection;
         _hourly = hourly;
+        _daily = daily;
     }
     
     return self;
@@ -66,8 +68,6 @@
     //NSDictionary *sys = dictionary[@"sys"];
     NSNumber *sunrise = current[@"sunrise"];
     NSNumber *sunset = current[@"sunset"];
-    
-//    NSDictionary *hourly = dictionary[@"hourly"];
     
     
     //Date Format
@@ -112,15 +112,24 @@
     
     
     
+    //Setup array for the next 24hr forecast
     NSMutableArray<FGTHourlyForecast *> *hourlyArray = [[NSMutableArray alloc] init];
-
-    //Setup array of next 24hr forecast
+    
     for (int i = 0; i < 24; i++) {
-    NSDictionary *hourly = dictionary[@"hourly"][i];
-    FGTHourlyForecast *hourlyForeCast = [[FGTHourlyForecast alloc] initWithDictionary: hourly];
+        NSDictionary *hourly = dictionary[@"hourly"][i];
+        FGTHourlyForecast *hourlyForeCast = [[FGTHourlyForecast alloc] initWithDictionary: hourly];
         [hourlyArray addObject:hourlyForeCast];
     }
-
+    
+    //Setup array for the daily forecast
+    NSMutableArray<FGTDailyForecast *> *dailyArray = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < 7; i++){
+        NSDictionary *daily = dictionary[@"daily"][i];
+        FGTDailyForecast *dailyForecast = [[FGTDailyForecast alloc] initWithDictionary:daily];
+        [dailyArray addObject: dailyForecast];
+    }
+    
     
     return [self initWithCity: conditions
                       sunrise:sunriseString
@@ -132,7 +141,8 @@
                      pressure:pressureString
                     windSpeed:windSpeedString
                 windDirection:windDirectionString
-                hourly:hourlyArray];
+                hourly:hourlyArray
+                daily: dailyArray];
 }
 
 
