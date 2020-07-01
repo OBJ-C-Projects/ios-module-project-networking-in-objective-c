@@ -31,8 +31,8 @@
     
     NSDictionary *temp = dictionary[@"temp"];
     
-    NSDictionary *min = temp[@"min"];
-    NSDictionary *max = temp[@"max"];
+    NSNumber *min = temp[@"min"];
+    NSNumber *max = temp[@"max"];
     
     //Formating Extracted data
     
@@ -44,9 +44,18 @@
     NSString *dateString = [dateFormatter stringFromDate:currentTime];
     
     //2.Temperature
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setMaximum:0];
+    [formatter setRoundingMode:NSNumberFormatterRoundUp];
     
+    NSString *minTempString = [NSString stringWithFormat:@"%@", [formatter stringFromNumber: min]];
     
-    return nil;
+    NSString *maxTempString = [NSString stringWithFormat:@"%@", [formatter stringFromNumber: max]];
+    
+    return [self initWithDt: dateString
+                        min:minTempString
+                        max:maxTempString
+            ];
 }
 
 @end
