@@ -10,27 +10,53 @@
 #import "LSIWeatherIcons.h"
 #import "LSIErrors.h"
 #import "LSILog.h"
+#import "FGTWeatherForcast.h"
+#import "LSIWeatherIcons.h"
+#import "FGTHourlyCollectionViewCell.h"
+#import "FGTHourlyForecast.h"
+#import "FGTFetchWeatherData.h"
+#import "FGTDailyForecast.h"
+
+
+#pragma mark - interface
 
 @interface LSIWeatherViewController () {
     BOOL _requestedLocation;
 }
 
+@property (strong, nonatomic) IBOutlet UIImageView *iconLabel;
+@property (strong, nonatomic) IBOutlet UILabel *locationLabel;
+@property (strong, nonatomic) IBOutlet UILabel *weatherConditionsLabel;
+@property (strong, nonatomic) IBOutlet UILabel *temperatureLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *bgImageView;
+
+
+@property (strong, nonatomic) IBOutlet UILabel *humidityLabel;
+@property (strong, nonatomic) IBOutlet UILabel *feelsLikeLabel;
+@property (strong, nonatomic) IBOutlet UILabel *lowTempLabel;
+@property (strong, nonatomic) IBOutlet UILabel *precipitationProbLabel;
+@property (strong, nonatomic) IBOutlet UILabel *sunriseLabel;
+@property (strong, nonatomic) IBOutlet UILabel *sunsetLabel;
+
+@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+                                                         
+
 @property CLLocationManager *locationManager;
 @property CLLocation *location;
 @property (nonatomic) CLPlacemark *placemark;
+@property (nonatomic) bool isCelciusEnable;
+@property FGTWeatherForcast *forcast;
 
 @end
 
-// NOTE: You must declare the Category before the main implementation,
-// otherwise you'll see errors about the type not being correct if you
-// try to move delegate methods out of the main implementation body
-@interface LSIWeatherViewController (CLLocationManagerDelegate) <CLLocationManagerDelegate>
+@interface LSIWeatherViewController (CLLocationManagerDelegate) <CLLocationManagerDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
+
 
 @end
 
+#pragma mark - implementation
 
 @implementation LSIWeatherViewController
-
 
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
@@ -57,8 +83,9 @@
     [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager startUpdatingLocation];
     
-    // TODO: Transparent toolbar with info button (Settings)
-    // TODO: Handle settings button pressed
+    NSUserDefaults *userDefaultsPref = [NSUserDefaults standardUserDefaults];
+    bool isCelcius = [userDefaultsPref boolForKey:@"isCelciusEnable"];
+    self.isCelciusEnable = isCelcius;
 }
 
 //https://developer.apple.com/documentation/corelocation/converting_between_coordinates_and_user-friendly_place_names
@@ -99,8 +126,6 @@
         
         [self requestCurrentPlacemarkForLocation:location withCompletion:^(CLPlacemark *place, NSError *error) {
             
-            NSLog(@"Location: %@, %@", place.locality, place.administrativeArea);
-            
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.location = location;
                 self.placemark = place;
@@ -112,26 +137,85 @@
 }
 
 - (void)requestWeatherForLocation:(CLLocation *)location {
-    
-    // TODO: 1. Parse CurrentWeather.json from App Bundle and update UI
-    
-    
-    
-    
-    // TODO: 2. Refactor and Parse Weather.json from App Bundle and update UI
+   
+    [FGTFetchWeatherData requestWeather:location isCelciusEnable:self.isCelciusEnable completion:^(FGTWeatherForcast * _Nonnull data, NSError * _Nonnull error) {
+        if (error){
+            NSLog(@"Error Fetching: %@", error);
+            return;
+        }
+        
+        if(data){
+            //If exist pass it to the forcast to be use
+            self.forcast = data;
+            [self updateViews];
+        }
+        
+    }];
 }
 
 - (void)updateViews {
-    if (self.placemark) {
-        // TODO: Update the City, State label
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.placemark) {
+            self.locationLabel.text = self.placemark.administrativeArea;
+        }
+        
+        
+        if(self.forcast){
+            
+            FGTDailyForecast *daily = self.forcast.daily.firstObject;
+            //Setup Labels
+            self.weatherConditionsLabel.text = self.forcast.conditions;
+            self.temperatureLabel.text = self.forcast.temperature;
+            self.feelsLikeLabel.text = self.forcast.feelsLike;
+            self.humidityLabel.text = self.forcast.humidity;
+           
+            self.sunriseLabel.text = self.forcast.sunrise;
+            self.sunsetLabel.text = self.forcast.sunset;
+            self.iconLabel.image = [UIImage imageNamed: self.forcast.icon];
+
+            if([self.forcast.icon containsString:@"d"]){
+                self.bgImageView.image = [UIImage imageNamed:@"day"];
+            }else{
+                self.bgImageView.image = [UIImage imageNamed:@"night"];
+            }
+            
+            if(daily){
+                self.lowTempLabel.text = [NSString stringWithFormat:@"%@°/%@°",daily.min, daily.max];
+            }
+        }
+            
+        [self.collectionView reloadData];
+    });
+    
+}
+
+
+#pragma mark -Actions
+
+- (IBAction)toggleUnitsFormatButton:(UIBarButtonItem *)sender {
+
+    //self.isCelciusEnable = !self.isCelciusEnable;
+    NSUserDefaults *userDefaultsPref = [NSUserDefaults standardUserDefaults];
+    
+    if(self.isCelciusEnable){
+        [userDefaultsPref setBool: false forKey:@"isCelciusEnable"];
+        self.isCelciusEnable = false;
+    }else{
+        [userDefaultsPref setBool: true forKey:@"isCelciusEnable"];
+        self.isCelciusEnable = true;
     }
     
-    // TODO: Update the UI based on the current forecast
+    
+    [userDefaultsPref synchronize];
+    //Request data with repective units
+    [self requestWeatherForLocation: self.location];
 }
+
 
 @end
 
-/// MARK: CLLocationManagerDelegate Methods
+
+# pragma mark - CLLocationManagerDelegate Methods
 
 @implementation LSIWeatherViewController(CLLocationManagerDelegate)
 
@@ -156,4 +240,41 @@
     [manager stopUpdatingLocation];
 }
 
+
+
+#pragma mark - CollectionView Methods
+
+- (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    
+    FGTHourlyCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HourlyForecastCell" forIndexPath:indexPath];
+    
+    FGTHourlyForecast *data = self.forcast.hourly[indexPath.row];
+    
+    if (data) {
+        if(indexPath.row == 0){
+            cell.time.text = @"Now";
+        }else{
+            cell.time.text = data.dt;
+        }
+        
+        cell.temperature.text = data.temp;
+
+        
+        cell.image.image = [UIImage imageNamed: data.icon];
+    }
+    return cell;
+}
+
+//TODO: Set to the count of array
+- (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return 24;
+}
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    return 1;
+}
+
 @end
+
+
+

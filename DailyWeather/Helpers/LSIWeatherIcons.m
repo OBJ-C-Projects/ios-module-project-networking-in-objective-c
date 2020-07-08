@@ -13,45 +13,35 @@
 
 @implementation LSIWeatherIcons
 
-static NSArray<NSString *> *_icons = nil;
-static NSString *unknownIcon = @"questionmark.circle.fill";
-
-/// Based on possible entries from `icon`: https://darksky.net/dev/docs
-
-+ (NSArray<NSString *> *)weatherIcons {
-    if(!_icons) {
-        _icons = @[
-            @"clear-day",
-            @"clear-day",
-            @"clear-night",
-            @"partly-cloudy-day",
-            @"partly-cloudy-night",
-            @"cloudy",
-            @"rain",
-            @"sleet",
-            @"snow",
-            @"wind",
-            @"fog",
-            
-            // Extras may not be used, but mentioned in API docs
-            @"hail",
-            @"thunderstorm",
-            @"tornado",
-            
-            // Extras for sunrise stretch goal
-            @"sunrise",
-            @"sunset",
-        ];
+//New icon id https://openweathermap.org/weather-conditions
++ (NSString *)iconName:(NSNumber*)iconID {
+    int iconNum = [iconID intValue];
+    switch (iconNum) {
+        case 200 ... 232:
+            return @"thunderstorm";
+        case 300 ... 321:
+            return @"Drizzle";
+        case 500 ... 531:
+            return @"rain";
+        case 600 ... 622:
+            return @"snow";
+        case 701 ... 781:
+            return @"fog";
+        case 800:
+            return @"clear-day";
+        case 801 ... 804:
+            return @"cloudy";
+        default:
+             return @"unknown";
+            break;
     }
-    return _icons;
-}
+};
 
-+ (UIImage *)weatherImageForIconName:(NSString *)iconName {
-    NSString *icon = iconName;
-    if (![LSIWeatherIcons.weatherIcons containsObject: iconName]) {
-        icon = @"unknown";
-    }
-    return [UIImage imageNamed:icon];;
++ (UIImage *)weatherImageForIconName:(NSNumber *)iconNumber {
+    
+    NSString *iconName =  [self iconName:iconNumber];
+    
+    return [UIImage imageNamed: iconName];;
 }
 
 @end

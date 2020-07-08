@@ -17,6 +17,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    if (![userDefaults boolForKey:@"initialRunCompleted"]){
+        [userDefaults setBool:false forKey:@"isCelciusEnable"];
+    
+        [userDefaults setBool:true forKey:@"initialRunCompleted"];
+        
+    }
+    
     return YES;
 }
 
