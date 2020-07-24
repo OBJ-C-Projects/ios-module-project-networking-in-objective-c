@@ -1,9 +1,6 @@
 //
 //  LSIWeatherViewController.m
-//
-//  Created by Paul Solt on 2/6/20.
-//  Copyright © 2020 Lambda, Inc. All rights reserved.
-//
+
 
 #import <CoreLocation/CoreLocation.h>
 #import "LSIWeatherViewController.h"
@@ -265,7 +262,6 @@
     return cell;
 }
 
-//TODO: Set to the count of array
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return 24;
 }
